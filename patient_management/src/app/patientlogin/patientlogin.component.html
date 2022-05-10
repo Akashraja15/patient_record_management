@@ -4,15 +4,22 @@
         <h1 class="text-center text-light">Patient Login</h1>
         </div>
     <div class="card-body mx-auto">
-        <form class="myform">
+        <form class="myform" [formGroup]="patientform">
             <div class="field">
                 <label for="patientname" class="text-light">Username :</label>
-                <input type="text" name="patientname" class="form-control" id="patientname" placeholder="Enter your username">
+                <input type="text" formControlName="username" class="form-control" id="patientname" placeholder="Enter your username">
+                <span class="text-danger"
+                        *ngIf="patientform.controls['username'].touched && patientform.hasError('required','username')">*
+                        Name
+                        is required!!</span>
             </div>
 
             <div class="field">
                 <label for="password" class="text-light">Password :</label>
-                <input type="password" name="password" id="password" placeholder="********" class="form-control">
+                <input type="password" formControlName="password" id="password" placeholder="Enter your Password" class="form-control">
+                <span class="text-danger"
+                *ngIf="patientform.controls['password'].dirty && patientform.hasError('required','password')">
+                *Password is required!!</span>
             </div>
 
             <div class="buttons text-center">

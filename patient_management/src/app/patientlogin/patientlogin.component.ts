@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormBuilder,Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-patientlogin',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patientlogin.component.css']
 })
 export class PatientloginComponent implements OnInit {
-
-  constructor() { }
+  patientform!:FormGroup;
+  constructor(private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.patientform = this.formbuilder.group(
+      {
+        username:['',Validators.required],
+        password:['',Validators.required],
+
+      }
+    )
   }
 
 }
