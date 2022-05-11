@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdmindashbroadComponent } from './admindashbroad/admindashbroad.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { AdmindashbroadComponent } from './admindashbroad/admindashbroad.compone
     HomeComponent,
     ContactusComponent,
     AboutusComponent,
-    AdmindashbroadComponent
+    AdmindashbroadComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
