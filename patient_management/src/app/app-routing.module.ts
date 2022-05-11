@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdmindashbroadComponent } from './admindashbroad/admindashbroad.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path:'signup',component:UserformComponent},
   {path:'contact',component:ContactusComponent},
   {path:'about',component:AboutusComponent},
-
+  {path:'admindashboard',component:AdmindashbroadComponent}
 ];
 
 @NgModule({

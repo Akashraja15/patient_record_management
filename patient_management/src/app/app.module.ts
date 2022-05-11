@@ -9,6 +9,7 @@ import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdmindashbroadComponent } from './admindashbroad/admindashbroad.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     PatientloginComponent,
     HomeComponent,
     ContactusComponent,
-    AboutusComponent
+    AboutusComponent,
+    AdmindashbroadComponent
   ],
   imports: [
     BrowserModule,

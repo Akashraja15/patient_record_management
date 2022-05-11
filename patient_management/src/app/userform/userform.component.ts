@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-userform',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserformComponent implements OnInit {
 
-  constructor() { }
+  registerform!:FormGroup;
+  constructor(private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.registerform = this.formbuilder.group(
+      {
+        patientname:['',Validators.required],
+        phone:['',Validators.required,]
+      }
+    )
   }
 
 }

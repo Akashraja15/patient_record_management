@@ -4,15 +4,21 @@
         <h1 class="text-center text-light">Patient Sign-up Form</h1>
         </div>
     <div class="card-body mx-auto">
-        <form class="myform">
+        <form class="myform" [formGroup]="registerform">
             <div class="field">
                 <label for="patientname" class="text-light">Patient Name :</label>
-                <input type="text" name="patientname" id="patientname" class="form-control" placeholder="Enter your Name here">
+                <input type="text" formControlName="patientname" id="patientname" class="form-control" placeholder="Enter your Name here">
+                <span class="text-danger"
+                *ngIf="registerform.controls['patientname'].touched && registerform.hasError('required','patientname')">
+                    *Name is required!!</span>
             </div>
 
             <div class="field">
                 <label for="phone" class="text-light">Phone Number :</label>
-                <input type="number" name="phone" id="phone" class="form-control" placeholder="Enter Mobile Number">
+                <input type="tel" formControlName="phone" id="phone" class="form-control" placeholder="Enter Mobile Number">
+                <span class="text-danger"
+                *ngIf="registerform.controls['phone'].touched && registerform.hasError('required','phone')">
+                    *Phone Number must be in 10 Digits!!</span>
             </div>
 
             <div class="field">
