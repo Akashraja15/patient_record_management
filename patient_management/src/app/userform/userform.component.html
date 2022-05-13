@@ -4,7 +4,7 @@
         <h1 class="text-center text-light">Patient Sign-up Form</h1>
         </div>
     <div class="card-body mx-auto">
-        <form class="myform" [formGroup]="registerform">
+        <form class="myform" [formGroup]="registerform" (ngSubmit)="register(this.registerform.value)">
             <div class="field">
                 <label for="patientname" class="text-light">Patient Name :</label>
                 <input type="text" formControlName="patientname" id="patientname" class="form-control" placeholder="Enter your Name here">
@@ -23,17 +23,20 @@
 
             <div class="field">
                 <label for="gmail" class="text-light">Gmail :</label>
-                <input type="text" name="gmail" id="gmail" class="form-control" placeholder="Enter your gmail">
+                <input type="text" formControlName="email" id="gmail" class="form-control" placeholder="Enter your gmail">
+                <span class="text-danger"
+                *ngIf="registerform.controls['email'].touched && registerform.hasError('required','email')">
+                    *Enter Valid Gmail!!</span> 
             </div>
 
             <div class="field">
                 <label for="password" class="text-light">Password :</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                <input type="password" formControlName="password" name="password" id="password" class="form-control" placeholder="Enter your password">
             </div>
 
             <div class="field">
                 <label for="confirmpassword" class="text-light">Confirm Password :</label>
-                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Enter your Confirm password">
+                <input type="password" formControlName="confirmpassword" id="confirmpassword" class="form-control" placeholder="Enter your Confirm password">
             </div>
 
             <div class="buttons text-center">

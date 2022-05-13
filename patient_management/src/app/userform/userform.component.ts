@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ApicallService } from '../apicall.service';
 
 @Component({
@@ -10,19 +10,31 @@ import { ApicallService } from '../apicall.service';
 export class UserformComponent implements OnInit {
 
   registerform!:FormGroup;
+
   constructor(private formbuilder:FormBuilder,private api:ApicallService) {
-    this.api.getconnecting().subscribe(data =>{
-      console.log(data)
-    } )
+    // this.api.getconnecting().subscribe(data =>{
+    //   console.log(data)
+    // } )
    }
 
   ngOnInit(): void {
     this.registerform = this.formbuilder.group(
       {
         patientname:['',Validators.required],
-        phone:['',Validators.required,]
+        phone:['',Validators.required],
+        email:['',Validators.required],
+        password:['',Validators.required],
+        confirmpassword:['',Validators.required]
       }
     )
+    // console.log(this.registerform);
   }
-
+  register(Formvalue:NgForm){
+    console.log(Formvalue);
+    
+    this.api.signupdata(Formvalue).subscribe(data => {
+      console.log(data);
+      
+    });
+  }
 }

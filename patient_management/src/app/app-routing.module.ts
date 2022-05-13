@@ -9,6 +9,7 @@ import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { UserformComponent } from './userform/userform.component';
 
 const routes: Routes = [
+  {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'admin',component:AdminloginComponent},
   {path:'patient',component:PatientloginComponent},

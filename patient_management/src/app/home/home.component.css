@@ -1,0 +1,6 @@
+div {
+    background-image: url("../../images/hospital.jpg");
+    background-position: centre;
+    background-size: cover;
+    height: 100vh;
+}
