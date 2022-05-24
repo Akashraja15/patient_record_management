@@ -11,7 +11,7 @@ app.use(
     })
   );
 app.get('/senddata', function (request, response) {
-    response.json({"name":"Akash"})
+    response.json({"name":"Akash", id:"1", email: "akash07@gmail.com" })
   });
   
   app.post('/postquery', urlParser, function (request, response) {
@@ -32,6 +32,8 @@ app.get('/senddata', function (request, response) {
   
     console.log(`server is listening on http://localhost:${port}`);
   });
+
+
 const Cloudant = require("@cloudant/cloudant");
 var url =
   "https://2fbcb9ec-d57d-431a-8d72-186d88ddf478-bluemix.cloudantnosqldb.appdomain.cloud";
@@ -53,6 +55,7 @@ var cloudant = Cloudant({ url: url, username: username, password: password });
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
 cloudant.use("freshers_sample").insert({ name: "Akash", id: "101" }).then((data) => {
     console.log(data);
   })

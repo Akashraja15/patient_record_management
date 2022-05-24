@@ -20,7 +20,7 @@ var cloudant = Cloudant({ url: url, username: username, password: password });
 //     console.log(err);
 //   });
  
-module.exports.insert = function (paramsvalue) {
+insert = function (paramsvalue) {
   console.log(paramsvalue);
   cloudant
     .use("freshers_sample")
@@ -32,4 +32,14 @@ module.exports.insert = function (paramsvalue) {
       console.log(err);
     });
 };
+get = function (dbname) {
+  return cloudant.use(dbname).list();
+};
+getId = function (id, dbfname) {
+  return cloudant.use(dbfname).get(id);
+};
+del_id = function (id, id1, dbname) {
+  return cloudant.use(dbname).destroy(id, id1);
+};
+module.exports = { get, getId, insert, del_id };
  

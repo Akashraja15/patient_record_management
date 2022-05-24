@@ -13,4 +13,13 @@ export class ApicallService {
    signupdata(formobject:any){
     return this.http.post('http://localhost:8000/postquery',formobject)
    }
+   getUser(){
+    return this.http.get('http://localhost:8000/getUser/');
+  }
+  getUserId(id:any){
+    return this.http.get(`http://localhost:8000/getUserId/${id}`);
+  }
+  remove(id:any,id1:any){
+    return this.http.delete(`http://localhost:8000/delete/${id}/${id1}`);
+  }
 }

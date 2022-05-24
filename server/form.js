@@ -20,21 +20,11 @@ app.use(
     origin: "http://localhost:4200",
   })
 );
-// var urlParser = bodyparser.urlencoded({ extended: false });
-// app.get("/", function (request, response) {
-//   var data = file.readFileSync("details.json");
- 
-//   var details = JSON.parse(data);
-//   console.log("From get functin", details);
-//   exports.dataset = details;
- 
-//   //   response.sendFile(`${__dirname}/`);
-// });
+
  
 app.post("/postquery", (request, response, next) => {
   console.log(request);
   var object = {
-    // username: request.body.username,
     patientname: request.body.patientname,
     phone: request.body.phone,
     email: request.body.email,
@@ -42,22 +32,41 @@ app.post("/postquery", (request, response, next) => {
     confirmpassword: request.body.confirmpassword,
   };
  
-  //   var data = file.readFileSync("details.json");
- 
-  //   var details = JSON.parse(data);
-  //   details.push(object);
-  //   console.log(details);
- 
-  //   file.writeFile("details.json", JSON.stringify(details), (err) => {
-  //     if (err) throw err;
- 
-  //     console.log("Data added successfully");
-  //     details = JSON.parse(data);
-  //   });
-  // response.end(JSON.stringify(patient));
+
   dbconnection.insert(object);
-  //   response.redirect("..");
   console.log("Data added");
+});
+
+app.get("/getUser", (request, response) => {
+  console.log(request);
+  console.log("Fetching Begins");
+  dbconnection.get("freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/getUserId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.delete("/delete/:id/:id1", (request, response) => {
+  dbconnection
+    .del_id(request.params.id, request.params.id1, "freshers_sample")
+    .then((res) => {
+      if (res) {
+        response.send(res);
+      } else {
+        response.send("error");
+      }
+    });
 });
  
 app.listen(port, (err) => {

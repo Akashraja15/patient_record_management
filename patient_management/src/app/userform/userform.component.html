@@ -4,7 +4,7 @@
         <h1 class="text-center text-light">Patient Sign-up Form</h1>
         </div>
     <div class="card-body mx-auto">
-        <form class="myform" [formGroup]="registerform" (ngSubmit)="register(this.registerform.value)">
+        <form class="myform" [formGroup]="registerform">
             <div class="field">
                 <label for="patientname" class="text-light">Patient Name :</label>
                 <input type="text" formControlName="patientname" id="patientname" class="form-control" placeholder="Enter your Name here">
@@ -40,10 +40,33 @@
             </div>
 
             <div class="buttons text-center">
-                <button id="btn">Register</button>
+                <button id="btn" (click)="register(this.registerform.value)">Register</button>
+                <button (click)="getuser()">Get</button>
             </div>
         </form>
     </div>
 
     </div>
+    <table class="table bg-light">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Confirm Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of object">
+                <td scope="row">{{obj.patientname}}</td>
+                <td scope="row">{{obj.phone}}</td>
+                <td scope="row">{{obj.email}}</td>
+                <td scope="row">{{obj.password}}</td>
+                <td scope="row">{{obj.confirmpassword}}</td>
+                <td scope="row"><button class="btn btn-danger" (click)="deluser(obj,obj)">Delete</button></td>
+
+            </tr>
+        </tbody>
+    </table>
 </div>
