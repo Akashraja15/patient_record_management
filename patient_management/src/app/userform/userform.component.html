@@ -1,72 +1,121 @@
 <div class="container mt-5">
-    <div class="card mx-auto">
-        <div class="card-header">
-        <h1 class="text-center text-light">Patient Sign-up Form</h1>
-        </div>
+  <div class="card mx-auto">
+    <div class="card-header">
+      <h1 class="text-center text-light">Patient Sign-up Form</h1>
+    </div>
     <div class="card-body mx-auto">
-        <form class="myform" [formGroup]="registerform">
-            <div class="field">
-                <label for="patientname" class="text-light">Patient Name :</label>
-                <input type="text" formControlName="patientname" id="patientname" class="form-control" placeholder="Enter your Name here">
-                <span class="text-danger"
-                *ngIf="registerform.controls['patientname'].touched && registerform.hasError('required','patientname')">
-                    *Name is required!!</span>
-            </div>
+      <form class="myform" [formGroup]="registerform">
+        <div class="field">
+          <label for="patientname" class="text-light">Patient Name :</label>
+          <input
+            type="text"
+            formControlName="patientname"
+            id="patientname"
+            class="form-control"
+            placeholder="Enter your Name here"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['patientname'].touched &&
+              registerform.hasError('required', 'patientname')
+            "
+          >
+            *Name is required!!</span
+          >
+        </div>
 
-            <div class="field">
-                <label for="phone" class="text-light">Phone Number :</label>
-                <input type="tel" formControlName="phone" id="phone" class="form-control" placeholder="Enter Mobile Number">
-                <span class="text-danger"
-                *ngIf="registerform.controls['phone'].touched && registerform.hasError('required','phone')">
-                    *Phone Number must be in 10 Digits!!</span>
-            </div>
+        <div class="field">
+          <label for="phone" class="text-light">Phone Number :</label>
+          <input
+            type="tel"
+            formControlName="phone"
+            id="phone"
+            class="form-control"
+            placeholder="Enter Mobile Number"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['phone'].touched &&
+              registerform.hasError('required', 'phone')
+            "
+          >
+            *Phone Number must be in 10 Digits!!</span
+          >
+        </div>
 
-            <div class="field">
-                <label for="gmail" class="text-light">Gmail :</label>
-                <input type="text" formControlName="email" id="gmail" class="form-control" placeholder="Enter your gmail">
-                <span class="text-danger"
-                *ngIf="registerform.controls['email'].touched && registerform.hasError('required','email')">
-                    *Enter Valid Gmail!!</span> 
-            </div>
+        <div class="field">
+          <label for="gmail" class="text-light">Gmail :</label>
+          <input
+            type="text"
+            formControlName="email"
+            id="gmail"
+            class="form-control"
+            placeholder="Enter your gmail"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['email'].touched &&
+              registerform.hasError('required', 'email')
+            "
+          >
+            *Enter Valid Gmail!!</span
+          >
+        </div>
 
-            <div class="field">
-                <label for="password" class="text-light">Password :</label>
-                <input type="password" formControlName="password" name="password" id="password" class="form-control" placeholder="Enter your password">
-            </div>
+        <div class="field">
+          <label for="password" class="text-light">Gender :</label>
+          <input
+            type="text"
+            formControlName="gender"
+            id="gender"
+            class="form-control"
+            placeholder="Enter your Gender"
+          />
+        </div>
 
-            <div class="field">
-                <label for="confirmpassword" class="text-light">Confirm Password :</label>
-                <input type="password" formControlName="confirmpassword" id="confirmpassword" class="form-control" placeholder="Enter your Confirm password">
-            </div>
+        <div class="field">
+          <label for="password" class="text-light">Password :</label>
+          <input
+            type="password"
+            formControlName="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter your password"
+          />
+        </div>
 
-            <div class="buttons text-center">
-                <button id="btn" (click)="register(this.registerform.value)">Register</button>
-                <button (click)="getuser()">Get</button>
-            </div>
-        </form>
+        <div class="field">
+          <label for="confirmpassword" class="text-light"
+            >Confirm Password :</label
+          >
+          <input
+            type="password"
+            formControlName="confirmpassword"
+            id="confirmpassword"
+            class="form-control"
+            placeholder="Enter your Confirm password"
+          />
+        </div>
+
+        <div class="buttons text-center">
+          <button
+            id="btn"
+            (click)="register(this.registerform.value)"
+            [disabled]="!registerform.valid"
+          >
+            Register
+          </button>
+        </div>
+        <div class="signup text-center">
+          <label for="signup" class="text-light"
+            >Login Now
+            <a routerLink="/patient" class="text-success">Login</a></label
+          >
+        </div>
+      </form>
     </div>
-
-    </div>
-    <table class="table bg-light">
-        <thead>
-            <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Contact Number</th>
-                <th scope="col">Email</th>
-                <th scope="col">Password</th>
-                <th scope="col">Confirm Password</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let obj of object">
-                <td scope="row">{{obj.patientname}}</td>
-                <td scope="row">{{obj.phone}}</td>
-                <td scope="row">{{obj.email}}</td>
-                <td scope="row">{{obj.password}}</td>
-                <td scope="row">{{obj.confirmpassword}}</td>
-                <td scope="row"><button class="btn btn-danger" (click)="deluser(obj,obj)">Delete</button></td>
-
-            </tr>
-        </tbody>
-    </table>
+  </div>
 </div>

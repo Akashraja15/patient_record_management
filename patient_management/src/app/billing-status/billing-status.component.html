@@ -1,0 +1,49 @@
+<h1 class="title">Billing Information</h1>
+<div class="table1">
+  <table class="table bg-light" id="customers">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Disease</th>
+        <th scope="col">Insurance</th>
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">Delete Bill</th>
+        <th scope="col">Generate Bill</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of object">
+        <td scope="row">{{ obj.patientname }}</td>
+        <td scope="row">{{ obj.phone }}</td>
+        <td scope="row">{{ obj.email }}</td>
+        <td scope="row">{{ obj.gender }}</td>
+        <td scope="row">{{ obj.disease }}</td>
+        <td scope="row">{{ obj.insurance }}</td>
+        <td scope="row">{{ obj.fromdate }}</td>
+        <td scope="row">{{ obj.todate }}</td>
+        <td scope="row">
+          <button class="btn btn-danger" (click)="deletes(obj, obj)">
+            Delete Bill
+          </button>
+        </td>
+        <td scope="row">
+          <button
+            class="btn btn-success"
+            (click)="genbillid(obj._id, obj.patientname)"
+            routerLink="/payment"
+          >
+            Generate Bill
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="buttons text-center">
+  <button (click)="userBill()">User Bill's</button>
+</div>

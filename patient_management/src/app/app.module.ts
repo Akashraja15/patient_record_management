@@ -12,6 +12,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdmindashbroadComponent } from './admindashbroad/admindashbroad.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
+import { PaymentComponent } from './payment/payment.component';
+import { InputBillComponent } from './input-bill/input-bill.component';
+import { BillingStatusComponent } from './billing-status/billing-status.component';
+import { ViewBillComponent } from './view-bill/view-bill.component';
+import { UserPaymentComponent } from './user-payment/user-payment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,14 @@ import { HttpClientModule } from '@angular/common/http';
     ContactusComponent,
     AboutusComponent,
     AdmindashbroadComponent,
-    MainNavComponent
+    MainNavComponent,
+    UserDetailsComponent,
+    PatientDashboardComponent,
+    PaymentComponent,
+    InputBillComponent,
+    BillingStatusComponent,
+    ViewBillComponent,
+    UserPaymentComponent
   ],
   imports: [
     BrowserModule,

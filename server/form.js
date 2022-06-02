@@ -1,4 +1,3 @@
-
 const express = require("express");
 const connection = require("express");
 const bodyparser = require("body-parser");
@@ -12,7 +11,7 @@ const { response } = require("express");
 const { nextTick } = require("process");
 const cors = require("cors");
 const dbconnection = require("./db");
-// app.use(express.static("public"));
+const winlogger = require("./logger/logger");
 app.use(connection.static("public"));
 app.use(bodyparser.json());
 app.use(
@@ -22,25 +21,30 @@ app.use(
 );
 
  
+//user
 app.post("/postquery", (request, response, next) => {
   console.log(request);
   var object = {
     patientname: request.body.patientname,
     phone: request.body.phone,
     email: request.body.email,
+    gender: request.body.gender,
     password: request.body.password,
     confirmpassword: request.body.confirmpassword,
+    type: "user",
   };
  
-
   dbconnection.insert(object);
-  console.log("Data added");
 });
 
 app.get("/getUser", (request, response) => {
   console.log(request);
-  console.log("Fetching Begins");
-  dbconnection.get("freshers_sample").then((res) => {
+  var data = {
+    selector: {
+      type: "user",
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
     if (res) {
       response.send(res);
     } else {
@@ -68,11 +72,151 @@ app.delete("/delete/:id/:id1", (request, response) => {
       }
     });
 });
+
+
+
+
+//admin
+app.get("/getadmin", (request, response) => {
+  console.log(request);
+  var data = {
+    selector: {
+      type: "admin",
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/getadminId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+
+
+
+
+
+//bill
+app.post("/postquerybill", (request, response, next) => {
+  console.log(request);
+  var object = {
+    patientname: request.body.formobject.patientname,
+    phone: request.body.formobject.phone,
+    email: request.body.formobject.email,
+    gender: request.body.formobject.gender,
+    disease: request.body.formobject.disease,
+    insurance: request.body.formobject.insurance,
+    fromdate: request.body.formobject.fromdate,
+    todate: request.body.formobject.todate,
+    user_id:request.body._id,
+    type: "bill",
+  };
  
+  dbconnection.insert(object);
+});
+
+app.get("/getBill", (request, response) => {
+  console.log(request);
+  var data = {
+    selector: {
+      type: "bill",
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+      console.log(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/getBillId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.delete("/delbill/:id/:id1", (request, response) => {
+  dbconnection
+    .del_id(request.params.id, request.params.id1, "freshers_sample")
+    .then((res) => {
+      if (res) {
+        response.send(res);
+      } else {
+        response.send("error");
+      }
+    });
+});
+
+
+
+
+
+//user-billdata's
+app.post("/postqueryUserbilldata", (request, response, next) => {
+  // user_id = request.body.user_id;
+  // username = request.body.filename;
+  // console.log(user_id);
+  var object = {
+    // name:username,
+    // user_id:user_id,
+    //  file_type:"pdf",
+    //  filename:username+".pdf",
+    // type: "userbilldata",
+  };
+ dbconnection.insert(object);
+ console.log("data added");
+});
+
+app.get("/getUserbilldata", (request, response) => {
+  console.log(request);
+  var data = {
+    selector: {
+      type: "userbilldata",
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/getUserbilldataId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+
+
+
+
+
+
 app.listen(port, (err) => {
   if (err) {
     return console.log("something bad happened", err);
   }
  
+  winlogger.info("SUCCESS", "Server is running!!!");
   console.log(`server is listening on http://localhost:${port}`);
 });

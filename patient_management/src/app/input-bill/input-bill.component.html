@@ -1,0 +1,158 @@
+<div class="container mt-5">
+  <div class="card mx-auto">
+    <div class="card-header">
+      <h1 class="text-center text-light">Billing Information</h1>
+    </div>
+    <div class="card-body mx-auto">
+      <form class="myform" [formGroup]="billinfo">
+        <div class="field">
+          <label for="patientname" class="text-light">Patient Name :</label>
+          <input
+            type="text"
+            formControlName="patientname"
+            id="patientname"
+            class="form-control"
+            readonly
+          />
+
+          <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['patientname'].touched &&
+              billinfo.hasError('required', 'patientname')
+            "
+          >
+            *Name is required!!</span
+          >
+        </div>
+
+        <div class="field">
+          <label for="phone" class="text-light">Phone Number :</label>
+          <input
+            type="number"
+            formControlName="phone"
+            id="phone"
+            class="form-control"
+            readonly
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['phone'].touched &&
+              billinfo.hasError('required', 'phone')
+            "
+          >
+            *Phone Number must be in 10 Digits!!</span
+          >
+        </div>
+
+        <div class="field">
+          <label for="gmail" class="text-light">Gmail :</label>
+          <input
+            type="text"
+            formControlName="email"
+            id="gmail"
+            class="form-control"
+            readonly
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['email'].touched &&
+              billinfo.hasError('required', 'email')
+            "
+          >
+            *Enter Valid Gmail!!</span
+          >
+        </div>
+
+        <div class="field">
+          <label for="gender" class="text-light">Gender : </label>
+          <input
+            type="text"
+            id="gender"
+            readonly
+            class="form-control"
+            formControlName="gender"
+          />
+        </div>
+
+        <div class="field">
+          <label for="disease" class="text-light">Disease :</label>
+          <input
+            type="text"
+            formControlName="disease"
+            id="disease"
+            class="form-control"
+            placeholder="Mention the Disease??"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['disease'].touched &&
+              billinfo.hasError('required', 'disease')
+            "
+          >
+            *Enter the Disease you affected</span
+          >
+        </div>
+
+        <div class="field">
+          <label for="insurance" class="text-light">Insurance : </label>
+          <select class="form-select" formControlName="insurance">
+            <!-- <option value="sel">Select your Insurance</option> -->
+            <option value="Central Health Insurance">
+              Central Health Insurance
+            </option>
+            <option value="Tamil Nadu Health Insurance">
+              Tamil Nadu Health Insurance
+            </option>
+            <option value="Insurance For Handicap">
+              Insurance For Handicap
+            </option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fromdate" class="text-light">Admitted Date :</label>
+          <input
+            type="date"
+            formControlName="fromdate"
+            id="fromdate"
+            class="form-control"
+          />
+          <!-- <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['fromdate'].touched &&
+              billinfo.hasError('required', 'fromdate')
+            "
+            >*Enter Date</span
+          > -->
+        </div>
+
+        <div class="field">
+          <label for="todate" class="text-light">Discharge Date :</label>
+          <input
+            type="date"
+            formControlName="todate"
+            id="todate"
+            class="form-control"
+          />
+          <!-- <span
+            class="text-danger"
+            *ngIf="
+              billinfo.controls['todate'].touched &&
+              billinfo.hasError('required', 'todate')
+            "
+            >Enter Date</span
+          > -->
+        </div>
+
+        <div class="buttons text-center">
+          <button id="btn" (click)="bill(this.billinfo.value)">Sumbit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

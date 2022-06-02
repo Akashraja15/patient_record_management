@@ -1,24 +1,104 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Admin Portal</a>
-      </div>
-      <ul class="nav navbar-nav">
+<div class="sidebar">
+  <div class="logo-details">
+    <i class="bx bxl-c-plus-plus"></i>
+    <!-- <span class="logo_name">AR Hospital</span> -->
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="#">
+        <i class="bx bx-box"></i>
+        <span class="links_name"
+          ><a routerLink="/details">User Details</a></span
+        >
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bx-list-ul"></i>
+        <span class="links_name"
+          ><a routerLink="/billingstatus">Billing Status</a></span
+        >
+      </a>
+    </li>
+    <!-- <li>
+      <a href="#">
+        <i class="bx bx-list-ul"></i>
+        <span class="links_name"><a routerLink="/payment">Payment</a></span>
+      </a>
+    </li> -->
+    <li>
+      <a href="#">
+        <i class="bx bx-book-alt"></i>
+        <span class="links_name"><a routerLink="/">Logout</a></span>
+      </a>
+    </li>
+  </ul>
+</div>
 
-        <li class="nav-item"><a class="nav-link" routerLink="home"
-            routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" routerLink="admin"
-            routerLinkActive="active">Admin Login</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" routerLink="patient"
-            routerLinkActive="active">Patient Login</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" routerLink="contact"
-          routerLinkActive="active">Contact Us</a>
-        </li>
-
-      </ul>
+<section class="home-section">
+  <nav>
+    <div class="sidebar-button">
+      <i class="bx bx-menu sidebarBtn"></i>
+      <span class="dashboard">Admin Dashboard</span>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <!-- <div class="search-box">
+      <input type="text" placeholder="Search..." />
+      <i class="bx bx-search"></i>
+    </div>
+    <div class="profile-details">
+      <img src="images/profile.jpg" alt="">
+      <span class="admin_name">Akash Raja</span>
+      <i class="bx bx-chevron-down"></i>
+    </div>
+  </nav>
+
+   <div class="home-content">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Total Houses</div>
+          <div class="number">300</div>
+          <div class="indicator">
+            <i class="bx bx-up-arrow-alt"></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class="bx bx-cart-alt cart"></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Currently Occupied</div>
+          <div class="number">150</div>
+          <div class="indicator">
+            <i class="bx bx-up-arrow-alt"></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class="bx bxs-cart-add cart two"></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Free Houses</div>
+          <div class="number">100</div>
+          <div class="indicator">
+            <i class="bx bx-up-arrow-alt"></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class="bx bx-cart cart three"></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Total Return</div>
+          <div class="number">11,086</div>
+          <div class="indicator">
+            <i class="bx bx-down-arrow-alt down"></i>
+            <span class="text">Down From Today</span>
+          </div>
+        </div>
+        <i class="bx bxs-cart-download cart four"></i>
+      </div>
+    </div>
+  </div> -->
+</section>
