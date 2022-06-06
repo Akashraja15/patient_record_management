@@ -8,21 +8,15 @@ If Patient has Insurance, He/she can claim the insurance, If they claim the insu
 Has per our Indian Medical counsel, Patient has insurance they can claim the insurance at the billing time.
 
 
-#Website Built Tools
-1) HTML
-2) Bootstrap
-3) Angular
-4) Node JS
-
-
 #Features
 1) Admin Login
 2) New Patient Registration
 3) Patient Login
-4) Bill Provided by the Admin
-5) Patient Download and view the bill
-6) About us
-7) Contact us 
+4) Patient request the admin to generate the Bill
+5) Bill will be Provided by the Admin
+6) Patient Download and view the bill
+7) About us
+8) Contact us 
 
 
 #Admin Functions
@@ -39,10 +33,12 @@ Has per our Indian Medical counsel, Patient has insurance they can claim the ins
 4) Patient request the admin to generate the Bill.
 5) Patient can view and download Invoice pdf.
 
-#contact us
-Feel free to contact us for your Query's and doubts.
-
 
 #Github Link
 Github link for the code reference.
 https://github.com/Akashraja15/patient_record_management.git
+
+
+#Contact 
+Feel free to contact us.
+
