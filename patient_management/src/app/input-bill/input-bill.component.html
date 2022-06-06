@@ -100,7 +100,6 @@
         <div class="field">
           <label for="insurance" class="text-light">Insurance : </label>
           <select class="form-select" formControlName="insurance">
-            <!-- <option value="sel">Select your Insurance</option> -->
             <option value="Central Health Insurance">
               Central Health Insurance
             </option>
@@ -110,6 +109,7 @@
             <option value="Insurance For Handicap">
               Insurance For Handicap
             </option>
+            <option value="No Insurance">No Insurance</option>
           </select>
         </div>
 
@@ -121,14 +121,6 @@
             id="fromdate"
             class="form-control"
           />
-          <!-- <span
-            class="text-danger"
-            *ngIf="
-              billinfo.controls['fromdate'].touched &&
-              billinfo.hasError('required', 'fromdate')
-            "
-            >*Enter Date</span
-          > -->
         </div>
 
         <div class="field">
@@ -139,14 +131,6 @@
             id="todate"
             class="form-control"
           />
-          <!-- <span
-            class="text-danger"
-            *ngIf="
-              billinfo.controls['todate'].touched &&
-              billinfo.hasError('required', 'todate')
-            "
-            >Enter Date</span
-          > -->
         </div>
 
         <div class="buttons text-center">

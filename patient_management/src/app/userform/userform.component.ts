@@ -13,9 +13,6 @@ export class UserformComponent implements OnInit {
   value:boolean=true;
 
   constructor(private formbuilder:FormBuilder,private api:ApicallService) {
-    // this.api.getconnecting().subscribe(data =>{
-    //   console.log(data)
-    // } )
    }
 
   ngOnInit(): void {
@@ -29,7 +26,6 @@ export class UserformComponent implements OnInit {
         confirmpassword:['',Validators.required]
       }
     )
-    // console.log(this.registerform);
   }
   register(Formvalue:NgForm){
     console.log(Formvalue);

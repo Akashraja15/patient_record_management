@@ -30,17 +30,18 @@ export class InputBillComponent implements OnInit {
     this.userdetails = localStorage.getItem('userdetails');
     this.parseduser = JSON.parse(this.userdetails);
     console.log(this.parseduser);
-    var name = this.parseduser.name;
+    let name = this.parseduser.name;
     this.billinfo.controls['patientname'].setValue(name)
-    var phone = this.parseduser.phone;
+    let phone = this.parseduser.phone;
     this.billinfo.controls['phone'].setValue(phone)
-    var email = this.parseduser.email;
+    let email = this.parseduser.email;
     this.billinfo.controls['email'].setValue(email)
-    var gender = this.parseduser.gender;
+    let gender = this.parseduser.gender;
     this.billinfo.controls['gender'].setValue(gender)
    }
 
   ngOnInit(): void {
+    console.log("ngOnInit");
   }
   
   bill(Formvalue:NgForm){
