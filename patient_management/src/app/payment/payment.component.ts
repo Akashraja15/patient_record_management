@@ -34,8 +34,8 @@ export class PaymentComponent {
   invoice = new Invoice();
   product:any=new Product();
   name:any;
-  ngOnInit():void{
-  }
+  ngOnInit():void{ // method 'ngOnInit' is empty
+}
 
   constructor(private api:ApicallService) {
     this.product
@@ -172,6 +172,7 @@ export class PaymentComponent {
     console.log(this.name);
     console.log(user_id);
     this.api.Userbill(user_id,this.name).subscribe((data:any)=>{
+      // TODO document why this arrow function is empty
     })
   }
 }
