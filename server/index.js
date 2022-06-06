@@ -15,10 +15,10 @@ app.get('/senddata', function (request, response) {
   });
   
   app.post('/postquery', urlParser, function (request, response) {
-    var fname = request.body.fname;
-    var lname = request.body.lname;
+    let fname = request.body.fname;
+    let lname = request.body.lname;
     console.log(`${fname}   ${lname}`);
-    var data = {
+    let data = {
       first_name: fname,
       last_name: lname,
     };
@@ -35,12 +35,12 @@ app.get('/senddata', function (request, response) {
 
 
 const Cloudant = require("@cloudant/cloudant");
-var url =
+let url =
   "https://2fbcb9ec-d57d-431a-8d72-186d88ddf478-bluemix.cloudantnosqldb.appdomain.cloud";
-var username = "apikey-v2-kf8ex4frj52lu2wwin72qqktpi3occ9bfv4p80vbr99";
-var password = "68fc5b9dc8c58071087abaecc44a5f29";
+let username = "apikey-v2-kf8ex4frj52lu2wwin72qqktpi3occ9bfv4p80vbr99";
+let password = "68fc5b9dc8c58071087abaecc44a5f29";
 
-var cloudant = Cloudant({ url: url, username: username, password: password });
+let cloudant = Cloudant({ url: url, username: username, password: password });
 
 // cloudant.db
 //   .use("sam")
