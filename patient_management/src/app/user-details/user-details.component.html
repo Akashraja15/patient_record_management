@@ -15,13 +15,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let obj of object">
-        <td scope="row">{{ obj.patientname }}</td>
-        <td scope="row">{{ obj.phone }}</td>
-        <td scope="row">{{ obj.email }}</td>
-        <td scope="row">{{ obj.gender }}</td>
-        <td scope="row">{{ obj.password }}</td>
-        <td scope="row">{{ obj.confirmpassword }}</td>
-        <td scope="row">
+        <td>{{ obj.patientname }}</td>
+        <td>{{ obj.phone }}</td>
+        <td>{{ obj.email }}</td>
+        <td>{{ obj.gender }}</td>
+        <td>{{ obj.password }}</td>
+        <td>{{ obj.confirmpassword }}</td>
+        <td>
           <button class="btn btn-danger" (click)="deluser(obj, obj)">
             Delete
           </button>

@@ -171,7 +171,7 @@ export class PaymentComponent {
     let  user_id = localStorage.getItem('object');
     console.log(this.name);
     console.log(user_id);
-    this.api.Userbill(user_id,this.name).subscribe((data:any)=>{
+    this.api.Userbill(user_id,this.name).subscribe((_data:any)=>{
       // arrow function is empty
     })
   }
