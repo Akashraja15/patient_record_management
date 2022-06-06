@@ -88,15 +88,15 @@
                 <caption></caption>
                 <thead>
                   <tr>
-                    <th width="25%">Name of charges</th>
-                    <th width="25%">Cost</th>
-                    <th width="25%">Quantity</th>
-                    <th width="25%">Amount</th>
+                    <th>Name of charges</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let product of invoice.products; let i = index">
-                    <td scope="row">
+                    <td>
                       <input
                         type="text"
                         class="form-control"
