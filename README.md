@@ -8,6 +8,13 @@ If Patient has Insurance, He/she can claim the insurance, If they claim the insu
 Has per our Indian Medical counsel, Patient has insurance they can claim the insurance at the billing time.
 
 
+#Website Built Tools
+1) HTML
+2) Bootstrap
+3) Angular
+4) Node JS
+
+
 #Features
 1) Admin Login
 2) New Patient Registration
