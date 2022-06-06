@@ -33,7 +33,7 @@
         <td scope="row">
           <button
             class="btn btn-success"
-            (click)="genbillid(obj._id, obj.patientname)"
+            (click)="genbillid(obj.user_id, obj.patientname)"
             routerLink="/payment"
           >
             Generate Bill
@@ -42,8 +42,4 @@
       </tr>
     </tbody>
   </table>
-</div>
-
-<div class="buttons text-center">
-  <button (click)="userBill()">User Bill's</button>
 </div>

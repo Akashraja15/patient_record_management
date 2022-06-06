@@ -88,7 +88,7 @@
   justify-content: space-between;
   height: 80px;
   background: #fff;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   position: fixed;
   width: calc(100% - 240px);
@@ -255,7 +255,6 @@ nav .profile-details i{
 .home-content .sales-boxes{
   display: flex;
   justify-content: space-between;
-  /* padding: 0 20px; */
 }
  
 /* left box */
@@ -275,7 +274,6 @@ nav .profile-details i{
 .sales-boxes .box .title{
   font-size: 24px;
   font-weight: 500;
-  /* margin-bottom: 10px; */
 }
 .sales-boxes .sales-details li.topic{
   font-size: 20px;
@@ -357,7 +355,6 @@ nav .profile-details i{
     left: 60px;
   }
   .sidebar.active ~ .home-section{
-    /* width: calc(100% - 220px); */
     overflow: hidden;
     left: 220px;
   }

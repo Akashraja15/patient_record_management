@@ -1,1 +1,27 @@
-<p>view-bill works!</p>
+<h1 class="title">User Bill</h1>
+<div class="table1">
+  <table class="table bg-light" id="customers">
+    <thead>
+      <tr>
+        <th scope="col">File Name</th>
+        <th scope="col">File Type</th>
+        <th scope="col">Download Bill</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of object">
+        <td scope="row">{{ obj.filename }}</td>
+        <td scope="row">{{ obj.file_type }}</td>
+
+        <td scope="row">
+          <button
+            class="btn btn-success"
+            (click)="userdownloadbills(obj.filename, obj.filepath)"
+          >
+            Download Bill
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

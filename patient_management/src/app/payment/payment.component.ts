@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ApicallService } from '../apicall.service';
 
 
-// import pdfMake from 'pdfmake/build/pdfmake';
-// import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 
-// (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 class Product {
   name!: string;
@@ -33,6 +33,7 @@ export class PaymentComponent {
   insurance:any;
   invoice = new Invoice();
   product:any=new Product();
+  name:any;
   ngOnInit():void{
     
   }
@@ -59,7 +60,7 @@ export class PaymentComponent {
           color: 'red',
         },
         {
-          text: 'Customer Details',
+          text: 'Patient Details',
           style: 'sectionHeader',
         },
         {
@@ -85,7 +86,7 @@ export class PaymentComponent {
           ],
         },
         {
-          text: 'Order Details',
+          text: 'Billing Details',
           style: 'sectionHeader',
         },
         {
@@ -114,17 +115,8 @@ export class PaymentComponent {
                 {},
                 {},
                 this.invoice.products
-                  .reduce((sum, p) => (sum + p.qty * p.price) , 0)
+                  .reduce((sum, p) => (sum + p.qty * p.price) -this.insurance, 0)
                   .toFixed(2),
-              ],
-
-              [
-                { text: 'Total Amount', colSpan: 3 },
-                {},
-                {},
-                this.invoice.products
-                  .reduce((sum) => (sum - this.insurance) , 0)
-                  ,
               ],
 
             ],
@@ -140,7 +132,7 @@ export class PaymentComponent {
             'Their work includes updating patient data, developing payment plans, and preparing invoices',
             'They work in medical administrative offices to ensure that patients are billed quickly and accurately',
             'The final phase of the billing process is ensuring those bills get, well, paid. Billers are in charge of mailing out timely, accurate medical bills, and then following up with patients whose bills are delinquent. Once a bill is paid, that information is stored with the patients file',
-            'Each provider has it’s own set of guidelines and timelines when it comes to bill payment, notifications, and collections, so you’ll have to refer to the provider’s billing standards before engaging in these activities',
+            'Each provider has it`s own set of guidelines and timelines when it comes to bill payment, notifications, and collections, so you’ll have to refer to the provider’s billing standards before engaging in these activities',
           ],
         },
       ],
@@ -153,14 +145,16 @@ export class PaymentComponent {
         },
       },
     };
-    // if (action === 'download') {
-    //   let name = localStorage.getItem('name');
-    //   pdfMake.createPdf(docDefinition).download(name);
-    // } else if (action === 'print') {
-    //   pdfMake.createPdf(docDefinition).print();
-    // } else {
-    //   pdfMake.createPdf(docDefinition).open();
-    // }
+    if (action === 'download') {
+      this.name = localStorage.getItem('name');
+      console.log("generate bill");
+      this.name=`${this.name}`+(Math.random() * 10).toFixed(0);
+      pdfMake.createPdf(docDefinition).download(this.name);
+    } else if (action === 'print') {
+      pdfMake.createPdf(docDefinition).print();
+    } else {
+      pdfMake.createPdf(docDefinition).open();
+    }
   }
 
   addProduct() {
@@ -174,12 +168,11 @@ export class PaymentComponent {
     console.log("value",e.target.value);
   }
 
-  // viewbill(){
-  //   let  user_id = localStorage.getItem('object');
-  //   let name= localStorage.getItem('name');
-  //   console.log(name);
-  //   console.log(user_id);
-  // }
+  viewbill(){
+    let  user_id = localStorage.getItem('object');
+    console.log(this.name);
+    console.log(user_id);
+    this.api.Userbill(user_id,this.name).subscribe((data:any)=>{
+    })
+  }
 }
-  
-

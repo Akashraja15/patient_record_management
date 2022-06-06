@@ -42,6 +42,7 @@ export class InputBillComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   bill(Formvalue:NgForm){
     let id = localStorage.getItem('loginid');
     console.log(Formvalue);

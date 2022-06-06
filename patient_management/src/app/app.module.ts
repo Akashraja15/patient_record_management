@@ -19,6 +19,9 @@ import { InputBillComponent } from './input-bill/input-bill.component';
 import { BillingStatusComponent } from './billing-status/billing-status.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
 import { UserPaymentComponent } from './user-payment/user-payment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,14 +40,17 @@ import { UserPaymentComponent } from './user-payment/user-payment.component';
     InputBillComponent,
     BillingStatusComponent,
     ViewBillComponent,
-    UserPaymentComponent
+    UserPaymentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 * {
     margin: 10;
     padding: 0;
-    font-family: "Courier New", Courier, monospace;
+    /* font-family: "Courier New", Courier, monospace; */
     box-sizing: border-box;
    }
    .section {
@@ -14,10 +14,8 @@
    .about-section {
     background: url("../../images/hospital.jpg") no-repeat left;
     background-size: 50%;
-    /* background-color: aliceblue; */
     overflow: hidden;
     padding: 50px 0;
-    /* border-radius: 20px; */
    }
    .inner-container {
     width: 50%;
@@ -52,7 +50,7 @@
    }
    
    .text {
-    font-size: 13px;
+    font-size: 15px;
     color: black;
     line-height: 30px;
     text-align: justify;

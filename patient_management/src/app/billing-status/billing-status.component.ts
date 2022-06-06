@@ -15,12 +15,9 @@ export class BillingStatusComponent implements OnInit {
   constructor(private api:ApicallService) { }
 
   ngOnInit(): void {
-  }
 
-  userBill(){
     this.api.getBill().subscribe(data=>{
       console.log(data);
-      alert('Loading your Data....');
       this.alldata=data;
       this.alldata=this.alldata.docs;
       console.log(this.alldata);
@@ -29,7 +26,7 @@ export class BillingStatusComponent implements OnInit {
             this.object.push(i);
             }
           })
-      }
+  }
 
   deletes(data:any,data1:any){
     this.api.removebill(data._id,data1._rev).subscribe(res=>{
@@ -45,26 +42,5 @@ export class BillingStatusComponent implements OnInit {
     localStorage.setItem('object',parameter);
     localStorage.setItem('name',parameter1);   
 }
-
-
-
-
-
-
-
-// setbill(formvalue:any){
-//   console.log(formvalue);
-//   for(const i  of this.object){
-//     if(i.patientname ==  formvalue.username && i.password == formvalue.password){
-//         this.flag = 1;
-//         var finalbill:any = {
-//             name:i.patientname,
-//             phone:i.phone,
-//             email:i.email,
-//         }
-//         localStorage.setItem('userdetails',JSON.stringify(finalbill));
-//       }
-//     }
-//   }
 
 }

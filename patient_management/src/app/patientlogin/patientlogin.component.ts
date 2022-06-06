@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ApicallService } from '../apicall.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class PatientloginComponent implements OnInit {
   flag = 0;
   object:any=[];
   patientform!:FormGroup;
-  constructor(private formbuilder:FormBuilder,private api:ApicallService,private router:Router) { }
+  constructor(private formbuilder:FormBuilder,private api:ApicallService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.patientform = this.formbuilder.group(
@@ -57,11 +58,11 @@ export class PatientloginComponent implements OnInit {
       }
     }
     if(this.flag == 1 ){
+      this.toastr.success("Valid to access");
       this.router.navigate(['/patientdashboard'])
     }
     else{
-        alert("Invalid user");
-        location.reload();
+      this.toastr.error("Inalid User");
     }
   }  
 }

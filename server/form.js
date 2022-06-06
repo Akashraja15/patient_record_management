@@ -168,15 +168,16 @@ app.delete("/delbill/:id/:id1", (request, response) => {
 
 //user-billdata's
 app.post("/postqueryUserbilldata", (request, response, next) => {
-  // user_id = request.body.user_id;
-  // username = request.body.filename;
-  // console.log(user_id);
+  user_id = request.body.user_id;
+  username = request.body.filename;
+  console.log(user_id);
   var object = {
-    // name:username,
-    // user_id:user_id,
-    //  file_type:"pdf",
-    //  filename:username+".pdf",
-    // type: "userbilldata",
+    name:username,
+    login_id:user_id,
+     file_type:"pdf",
+     filename:username+".pdf",
+     filepath:"Downloads\\"+username+".pdf",
+    type: "userbilldata",
   };
  dbconnection.insert(object);
  console.log("data added");
@@ -206,6 +207,64 @@ app.get("/getUserbilldataId/:id", (request, response) => {
     }
   });
 });
+
+
+
+
+
+//download bill
+app.post("/downBill", (request, response) => {
+  let loginid = request.body.user_id;
+  console.log(loginid);
+  console.log(request);
+  var data = {
+    selector: {
+      type:"userbilldata",
+      login_id:loginid,
+    
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
+    console.log(res);
+    if (res) {
+      response.send(res);
+      console.log(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/downBillId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+
+
+
+
+
+//userdownloadbill
+app.post("/userbillsave", (request, response) => {
+  let filename = request.body.fname;
+  let filepath = request.body.fpath;
+  console.log(filename);
+  console.log(filepath);
+  console.log(request);
+
+  const downloadfile = `C:\\Users\\akas2989\\${filepath}`;
+  console.log(downloadfile);
+
+  response.download(downloadfile);
+});
+
+
+
+
 
 
 

@@ -59,11 +59,10 @@ export class ApicallService {
 
 
   //user-billdata's
-  Userbill(){
-    // Userbill(userid:any,username:any){
+    Userbill(userid:any,username:any){
     var obj= {
-      // filename:username,
-      // user_id : userid,
+      filename:username,
+      user_id : userid,
     }
     
     console.log(obj);
@@ -74,6 +73,34 @@ export class ApicallService {
   }
   getUserbillId(id:any){
     return this.http.get(`http://localhost:8000/getUserbilldataId/${id}`);
+  }
+
+
+
+  //Download Bill
+  downBill(id:any){
+    var obj={
+      user_id:id
+    }
+    console.log(obj);
+    return this.http.post('http://localhost:8000/downBill',obj);
+  }
+  downBillId(id:any){
+    return this.http.get(`http://localhost:8000/downBillId/${id}`);
+  }
+
+
+
+
+
+  //userdownloadbill
+  personalbills(filename:any,filepath:any){
+    var obj={
+      fname:filename,
+      fpath:filepath
+    }
+    console.log(obj);
+    return this.http.post('http://localhost:8000/userbillsave',obj,{responseType:'blob'});
   }
 
 
