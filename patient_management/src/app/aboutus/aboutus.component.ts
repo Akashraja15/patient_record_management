@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  constructor() { }
+  constructor() { /* constructor is empty */  }
 
   ngOnInit(): void {
+    // this method 'ngOnInit' is empty
+  
   }
 
 }

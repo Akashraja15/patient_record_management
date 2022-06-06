@@ -32,14 +32,8 @@ export class AdminloginComponent implements OnInit {
       this.alldata=this.alldata.docs;
       console.log(this.alldata);
       for(const i of this.alldata){
-        // if(Object.prototype.hasOwnProperty.call(this.alldata,i)){
-          // const elt = this.alldata[i];
-          // console.log(elt.id);
-          // this.api.getadminId(elt.id).subscribe(res=>{
             console.log(i);
             this.object.push(i);
-          // })
-        // }
       }
     })
   }
@@ -56,7 +50,6 @@ export class AdminloginComponent implements OnInit {
      }
      else{
       this.toastr.error("Invalid User");
-      //  location.reload();
      }
  }
 
