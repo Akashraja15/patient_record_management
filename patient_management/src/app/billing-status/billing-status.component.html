@@ -18,20 +18,20 @@
     </thead>
     <tbody>
       <tr *ngFor="let obj of object">
-        <td scope="row">{{ obj.patientname }}</td>
-        <td scope="row">{{ obj.phone }}</td>
-        <td scope="row">{{ obj.email }}</td>
-        <td scope="row">{{ obj.gender }}</td>
-        <td scope="row">{{ obj.disease }}</td>
-        <td scope="row">{{ obj.insurance }}</td>
-        <td scope="row">{{ obj.fromdate }}</td>
-        <td scope="row">{{ obj.todate }}</td>
-        <td scope="row">
+        <td>{{ obj.patientname }}</td>
+        <td>{{ obj.phone }}</td>
+        <td>{{ obj.email }}</td>
+        <td>{{ obj.gender }}</td>
+        <td>{{ obj.disease }}</td>
+        <td>{{ obj.insurance }}</td>
+        <td>{{ obj.fromdate }}</td>
+        <td>{{ obj.todate }}</td>
+        <td>
           <button class="btn btn-danger" (click)="deletes(obj, obj)">
             Delete Bill
           </button>
         </td>
-        <td scope="row">
+        <td>
           <button
             class="btn btn-success"
             (click)="genbillid(obj.user_id, obj.patientname)"

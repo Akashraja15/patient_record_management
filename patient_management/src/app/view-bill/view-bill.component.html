@@ -11,10 +11,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let obj of object">
-        <td scope="row">{{ obj.filename }}</td>
-        <td scope="row">{{ obj.file_type }}</td>
+        <td>{{ obj.filename }}</td>
+        <td>{{ obj.file_type }}</td>
 
-        <td scope="row">
+        <td>
           <button
             class="btn btn-success"
             (click)="userdownloadbills(obj.filename, obj.filepath)"
