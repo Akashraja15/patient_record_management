@@ -35,8 +35,8 @@ export class PaymentComponent {
   product:any=new Product();
   name:any;
   ngOnInit():void{
-    
   }
+  
   constructor(private api:ApicallService) {
     this.product
     // this.product.push(new Product());
