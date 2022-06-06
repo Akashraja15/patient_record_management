@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ApicallService } from '../apicall.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

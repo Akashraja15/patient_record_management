@@ -28,7 +28,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   deluser(data:any,data1:any){
-    this.api.remove(data._id,data1._rev).subscribe(res=>{
+    this.api.remove(data._id,data1._rev).subscribe(_res=>{
       alert('Your Data has been deleted from the database.');
       location.reload();
     })

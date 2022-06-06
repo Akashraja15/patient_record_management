@@ -172,7 +172,7 @@ export class PaymentComponent {
     console.log(this.name);
     console.log(user_id);
     this.api.Userbill(user_id,this.name).subscribe((data:any)=>{
-      // TODO document why this arrow function is empty
+      // arrow function is empty
     })
   }
 }
