@@ -4,7 +4,7 @@ const bodyparser = require("body-parser");
 const app = connection();
 app.use(express.static("public"));
 const port = 8000;
-var login = {};
+let login = {};
 const file = require("fs");
 const { request } = require("http");
 const { response } = require("express");
@@ -39,7 +39,7 @@ app.post("/postquery", (request, response, next) => {
 
 app.get("/getUser", (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: "user",
     }
@@ -79,7 +79,7 @@ app.delete("/delete/:id/:id1", (request, response) => {
 //admin
 app.get("/getadmin", (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: "admin",
     }
@@ -109,7 +109,7 @@ app.get("/getadminId/:id", (request, response) => {
 //bill
 app.post("/postquerybill", (request, response, next) => {
   console.log(request);
-  var object = {
+  let object = {
     patientname: request.body.formobject.patientname,
     phone: request.body.formobject.phone,
     email: request.body.formobject.email,
@@ -185,7 +185,7 @@ app.post("/postqueryUserbilldata", (request, response, next) => {
 
 app.get("/getUserbilldata", (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: "userbilldata",
     }
@@ -217,7 +217,7 @@ app.post("/downBill", (request, response) => {
   let loginid = request.body.user_id;
   console.log(loginid);
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type:"userbilldata",
       login_id:loginid,
