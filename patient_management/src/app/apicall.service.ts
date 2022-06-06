@@ -9,10 +9,10 @@ export class ApicallService {
   
 
   //user
-  signupdata(formobject:any){
-    return this.http.post('http://localhost:8000/postquery',formobject)
+  signUpData(formobject:any){
+    return this.http.post('http://localhost:8000/postQuery',formobject)
   }
-   getUser(){
+  getUser(){
     return this.http.get('http://localhost:8000/getUser/');
   }
   getUserId(id:any){
@@ -26,24 +26,24 @@ export class ApicallService {
 
 
   //admin
-  getadmin(){
-    return this.http.get('http://localhost:8000/getadmin/');
+  getAdmin(){
+    return this.http.get('http://localhost:8000/getAdmin/');
   }
   getadminId(id:any){
-    return this.http.get(`http://localhost:8000/getadminId/${id}`);
+    return this.http.get(`http://localhost:8000/getAdminId/${id}`);
   }
   
 
 
 
   //bill
-  billdata(formobject:any,loginuserid:any){
+  billData(formobject:any,loginuserid:any){
     let obj={
       formobject:formobject,
       _id :loginuserid,
     }
     console.log("obj");
-    return this.http.post('http://localhost:8000/postquerybill',obj)
+    return this.http.post('http://localhost:8000/postQueryBill',obj)
   }
   getBill(){
     return this.http.get('http://localhost:8000/getBill/');
@@ -51,28 +51,28 @@ export class ApicallService {
   getBillId(id:any){
     return this.http.get(`http://localhost:8000/getBillId/${id}`);
   }
-  removebill(id:any,id1:any){
-    return this.http.delete(`http://localhost:8000/delbill/${id}/${id1}`);
+  removeBill(id:any,id1:any){
+    return this.http.delete(`http://localhost:8000/delBill/${id}/${id1}`);
   }
 
 
 
 
   //user-billdata's
-    Userbill(userid:any,username:any){
+    userBill(userid:any,username:any){
     let obj= {
       filename:username,
       user_id : userid,
     }
     
     console.log(obj);
-    return this.http.post('http://localhost:8000/postqueryUserbilldata',obj)
+    return this.http.post('http://localhost:8000/postQueryUserBillData',obj)
   }
   getUserbill(){
-    return this.http.get('http://localhost:8000/getUserbilldata/');
+    return this.http.get('http://localhost:8000/getUserBillData/');
   }
   getUserbillId(id:any){
-    return this.http.get(`http://localhost:8000/getUserbilldataId/${id}`);
+    return this.http.get(`http://localhost:8000/getUserBillDataId/${id}`);
   }
 
 
@@ -94,15 +94,13 @@ export class ApicallService {
 
 
   //userdownloadbill
-  personalbills(filename:any,filepath:any){
+  personalBills(filename:any,filepath:any){
     let obj={
       fname:filename,
       fpath:filepath
     }
     console.log(obj);
-    return this.http.post('http://localhost:8000/userbillsave',obj,{responseType:'blob'});
+    return this.http.post('http://localhost:8000/userBillSave',obj,{responseType:'blob'});
   }
-
-
 
 }

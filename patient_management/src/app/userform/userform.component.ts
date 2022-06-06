@@ -30,7 +30,7 @@ export class UserformComponent implements OnInit {
   register(Formvalue:NgForm){
     console.log(Formvalue);
     window.location.reload(); //double click
-    this.api.signupdata(Formvalue).subscribe(data => {
+    this.api.signUpData(Formvalue).subscribe(data => {
       console.log(data);
     });
   }

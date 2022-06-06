@@ -29,14 +29,14 @@ export class BillingStatusComponent implements OnInit {
   }
 
   deletes(data:any,data1:any){
-    this.api.removebill(data._id,data1._rev).subscribe(_res=>{
+    this.api.removeBill(data._id,data1._rev).subscribe(_res=>{
       alert('Your Data has been deleted from the database.');
       location.reload();
     })
     }
     
 
-  genbillid(parameter:any,parameter1:any){
+  genBillId(parameter:any,parameter1:any){
     console.log(parameter);
     console.log(parameter1);
     localStorage.setItem('object',parameter);

@@ -49,7 +49,7 @@ export class InputBillComponent implements OnInit {
     console.log(Formvalue);
     alert('Your Data has been Add in database.');
     location.reload();
-    this.api.billdata(Formvalue,id).subscribe(data => {
+    this.api.billData(Formvalue,id).subscribe(data => {
       console.log(data);
     });
   }

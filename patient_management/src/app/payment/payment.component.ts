@@ -167,11 +167,11 @@ export class PaymentComponent {
     console.log("value",e.target.value);
   }
 
-  viewbill(){
+  viewBill(){
     let  user_id = localStorage.getItem('object');
     console.log(this.name);
     console.log(user_id);
-    this.api.Userbill(user_id,this.name).subscribe((_data:any)=>{
+    this.api.userBill(user_id,this.name).subscribe((_data:any)=>{
       // arrow function is empty
     })
   }

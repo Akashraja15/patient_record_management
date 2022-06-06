@@ -33,10 +33,10 @@ export class ViewBillComponent implements OnInit {
 
 
 
-  userdownloadbills(filename:any, filepath:any){
+  userDownloadBills(filename:any, filepath:any){
     console.log(filename);
     console.log(filepath);
-    this.api.personalbills(filename,filepath).subscribe((data:any)=>{
+    this.api.personalBills(filename,filepath).subscribe((data:any)=>{
       console.log(data);
     saveAs(data, filename)
     })

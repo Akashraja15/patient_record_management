@@ -18,7 +18,6 @@ import { PaymentComponent } from './payment/payment.component';
 import { InputBillComponent } from './input-bill/input-bill.component';
 import { BillingStatusComponent } from './billing-status/billing-status.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
-import { UserPaymentComponent } from './user-payment/user-payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
@@ -40,7 +39,6 @@ import { CommonModule } from '@angular/common';
     InputBillComponent,
     BillingStatusComponent,
     ViewBillComponent,
-    UserPaymentComponent,
   ],
   imports: [
     BrowserModule,

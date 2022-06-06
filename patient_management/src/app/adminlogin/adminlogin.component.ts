@@ -25,7 +25,7 @@ export class AdminloginComponent implements OnInit {
         password:['',Validators.required],
       }
     )
-    this.api.getadmin().subscribe(data=>{
+    this.api.getAdmin().subscribe(data=>{
       console.log(data);
       console.log('Data was fetching....');
       this.alldata=data;

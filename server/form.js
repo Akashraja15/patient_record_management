@@ -22,7 +22,7 @@ app.use(
 
  
 //user
-app.post("/postquery", (request, _response, _next) => {
+app.post("/postQuery", (request, _response, _next) => {
   console.log(request);
   let object = {
     patientname: request.body.patientname,
@@ -77,7 +77,7 @@ app.delete("/delete/:id/:id1", (request, response) => {
 
 
 //admin
-app.get("/getadmin", (request, response) => {
+app.get("/getAdmin", (request, response) => {
   console.log(request);
   let data = {
     selector: {
@@ -92,7 +92,7 @@ app.get("/getadmin", (request, response) => {
     }
   });
 });
-app.get("/getadminId/:id", (request, response) => {
+app.get("/getAdminId/:id", (request, response) => {
   dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
     if (res) {
       response.send(res);
@@ -107,7 +107,7 @@ app.get("/getadminId/:id", (request, response) => {
 
 
 //bill
-app.post("/postquerybill", (request, response, next) => {
+app.post("/postQueryBill", (request, response, next) => {
   console.log(request);
   let object = {
     patientname: request.body.formobject.patientname,
@@ -150,7 +150,7 @@ app.get("/getBillId/:id", (request, response) => {
     }
   });
 });
-app.delete("/delbill/:id/:id1", (request, response) => {
+app.delete("/delBill/:id/:id1", (request, response) => {
   dbconnection
     .del_id(request.params.id, request.params.id1, "freshers_sample")
     .then((res) => {
@@ -167,9 +167,9 @@ app.delete("/delbill/:id/:id1", (request, response) => {
 
 
 //user-billdata's
-app.post("/postqueryUserbilldata", (request, response, next) => {
-  user_id = request.body.user_id;
-  username = request.body.filename;
+app.post("/postQueryUserBillData", (request, response, next) => {
+  let user_id = request.body.user_id;
+  let username = request.body.filename;
   console.log(user_id);
   let object = {
     name:username,
@@ -183,7 +183,7 @@ app.post("/postqueryUserbilldata", (request, response, next) => {
  console.log("data added");
 });
 
-app.get("/getUserbilldata", (request, response) => {
+app.get("/getUserBillData", (request, response) => {
   console.log(request);
   let data = {
     selector: {
@@ -198,7 +198,7 @@ app.get("/getUserbilldata", (request, response) => {
     }
   });
 });
-app.get("/getUserbilldataId/:id", (request, response) => {
+app.get("/getUserBillDataId/:id", (request, response) => {
   dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
     if (res) {
       response.send(res);
@@ -249,17 +249,17 @@ app.get("/downBillId/:id", (request, response) => {
 
 
 //userdownloadbill
-app.post("/userbillsave", (request, response) => {
+app.post("/userBillSave", (request, response) => {
   let filename = request.body.fname;
   let filepath = request.body.fpath;
   console.log(filename);
   console.log(filepath);
   console.log(request);
 
-  const downloadfile = `C:\\Users\\akas2989\\${filepath}`;
-  console.log(downloadfile);
+  const downloadFile = `C:\\Users\\akas2989\\${filepath}`;
+  console.log(downloadFile);
 
-  response.download(downloadfile);
+  response.download(downloadFile);
 });
 
 
