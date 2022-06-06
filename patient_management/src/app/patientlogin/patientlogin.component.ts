@@ -48,7 +48,7 @@ export class PatientloginComponent implements OnInit {
           this.flag = 1;
         localStorage.setItem('loginid',i._id);
           
-          var patientdetails:any = {
+          let patientdetails:any = {
               name:i.patientname,
               phone:i.phone,
               email:i.email,

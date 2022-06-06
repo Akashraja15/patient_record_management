@@ -24,7 +24,7 @@ app.use(
 //user
 app.post("/postquery", (request, response, next) => {
   console.log(request);
-  var object = {
+  let object = {
     patientname: request.body.patientname,
     phone: request.body.phone,
     email: request.body.email,
@@ -127,7 +127,7 @@ app.post("/postquerybill", (request, response, next) => {
 
 app.get("/getBill", (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: "bill",
     }
@@ -171,7 +171,7 @@ app.post("/postqueryUserbilldata", (request, response, next) => {
   user_id = request.body.user_id;
   username = request.body.filename;
   console.log(user_id);
-  var object = {
+  let object = {
     name:username,
     login_id:user_id,
      file_type:"pdf",

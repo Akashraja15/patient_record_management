@@ -38,7 +38,7 @@ export class ApicallService {
 
   //bill
   billdata(formobject:any,loginuserid:any){
-    var obj={
+    let obj={
       formobject:formobject,
       _id :loginuserid,
     }
@@ -60,7 +60,7 @@ export class ApicallService {
 
   //user-billdata's
     Userbill(userid:any,username:any){
-    var obj= {
+    let obj= {
       filename:username,
       user_id : userid,
     }
@@ -79,7 +79,7 @@ export class ApicallService {
 
   //Download Bill
   downBill(id:any){
-    var obj={
+    let obj={
       user_id:id
     }
     console.log(obj);
@@ -95,7 +95,7 @@ export class ApicallService {
 
   //userdownloadbill
   personalbills(filename:any,filepath:any){
-    var obj={
+    let obj={
       fname:filename,
       fpath:filepath
     }
