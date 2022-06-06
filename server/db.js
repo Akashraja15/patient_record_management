@@ -7,7 +7,7 @@ var password = "68fc5b9dc8c58071087abaecc44a5f29";
 var cloudant = Cloudant({ url: url, username: username, password: password });
 
  
-var insert = function (paramsvalue) {
+insert = function (paramsvalue) {
   console.log(paramsvalue);
   cloudant
     .use("freshers_sample")
@@ -19,13 +19,13 @@ var insert = function (paramsvalue) {
       console.log(err);
     });
 };
-var get = function (admindata,dbname) {
+get = function (admindata,dbname) {
   return cloudant.use(dbname).find(admindata);
 };
-var getId = function (id, dbfname) {
+getId = function (id, dbfname) {
   return cloudant.use(dbfname).get(id);
 };
-var del_id = function (id, id1, dbname) {
+del_id = function (id, id1, dbname) {
   return cloudant.use(dbname).destroy(id, id1);
 };
 module.exports = { get, getId, insert, del_id };
