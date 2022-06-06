@@ -1,8 +1,8 @@
-#Title
+#Title - 
 Patient_Billing_System
 
 
-#Description
+#Description - 
 Patient Billing system is a process of providing bill for the patient, and also claiming the Insurance for the patient.
 If Patient has Insurance, He/she can claim the insurance, If they claim the insurance the cost of bill will be decreases.
 Has per our Indian Medical counsel, Patient has insurance they can claim the insurance at the billing time.
