@@ -22,7 +22,7 @@ app.use(
 
  
 //user
-app.post("/postquery", (request, response, next) => {
+app.post("/postquery", (request, _response, _next) => {
   console.log(request);
   let object = {
     patientname: request.body.patientname,
