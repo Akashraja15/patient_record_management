@@ -36,10 +36,9 @@ export class PaymentComponent {
   name:any;
   ngOnInit():void{
   }
-  
+
   constructor(private api:ApicallService) {
     this.product
-    // this.product.push(new Product());
   }
 
   generatePDF(action = 'open') {
