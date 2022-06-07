@@ -20,10 +20,10 @@ export class UserformComponent implements OnInit {
       {
         patientname:['',Validators.required],
         phone:['',Validators.required],
-        email:['',Validators.required],
+        email:['',Validators.required,Validators.pattern('[a-zA-Z0-9]*@gmail.com')],
         gender:['',Validators.required],
-        password:['',Validators.required],
-        confirmpassword:['',Validators.required]
+        password:['',Validators.required,Validators.pattern('[A-Za-z0-9@!_]{6,}')],
+        confirmpassword:['',Validators.required,Validators.pattern('[A-Za-z0-9@!_]{6,}')]
       }
     )
   }

@@ -62,7 +62,7 @@ export class PatientloginComponent implements OnInit {
       this.router.navigate(['/patientdashboard'])
     }
     else{
-      this.toastr.error("Inalid User");
+      this.toastr.error("Invalid User");
     }
   }  
 }
