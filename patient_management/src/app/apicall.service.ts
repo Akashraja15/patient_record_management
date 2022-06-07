@@ -10,7 +10,7 @@ export class ApicallService {
 
   //user
   signUpData(formobject:any){
-    return this.http.post('http://localhost:8000/postQuery',formobject)
+    return this.http.post('http://localhost:8000/signUp',formobject)
   }
   getUser(){
     return this.http.get('http://localhost:8000/getUser/');
@@ -29,7 +29,7 @@ export class ApicallService {
   getAdmin(){
     return this.http.get('http://localhost:8000/getAdmin/');
   }
-  getadminId(id:any){
+  getAdminId(id:any){
     return this.http.get(`http://localhost:8000/getAdminId/${id}`);
   }
   
@@ -71,7 +71,7 @@ export class ApicallService {
   getUserbill(){
     return this.http.get('http://localhost:8000/getUserBillData/');
   }
-  getUserbillId(id:any){
+  getUserBillId(id:any){
     return this.http.get(`http://localhost:8000/getUserBillDataId/${id}`);
   }
 

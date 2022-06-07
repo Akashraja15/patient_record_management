@@ -19,7 +19,7 @@ app.use(
 
  
 //user
-app.post("/postQuery", (request, _response, _next) => {
+app.post("/signUp", (request, _response, _next) => {
   console.log(request);
   let object = {
     patientname: request.body.patientname,
