@@ -3,7 +3,6 @@ import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ApicallService } from '../apicall.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthserviceService } from '../shared/authservice.service';
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',
@@ -15,9 +14,8 @@ export class AdminloginComponent implements OnInit {
   alldata:any;
   flag = 0;
   adminform!:FormGroup;
-  returnurl = '';
 
-  constructor(private formbuilder:FormBuilder,private api:ApicallService,private router:Router,private toastr:ToastrService,private authService:AuthserviceService) { }
+  constructor(private formbuilder:FormBuilder,private api:ApicallService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.adminform = this.formbuilder.group(

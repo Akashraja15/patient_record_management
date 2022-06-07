@@ -10,7 +10,6 @@ import { InputBillComponent } from './input-bill/input-bill.component';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { PaymentComponent } from './payment/payment.component';
-import { AuthguardGuard } from './shared/authguard.guard';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserformComponent } from './userform/userform.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
@@ -23,7 +22,7 @@ const routes: Routes = [
   {path:'signup',component:UserformComponent},
   {path:'contact',component:ContactusComponent},
   {path:'about',component:AboutusComponent},
-  {path:'admindashboard',component:AdmindashbroadComponent, canActivate : [AuthguardGuard]},
+  {path:'admindashboard',component:AdmindashbroadComponent},
   {path:'details',component:UserDetailsComponent},
   {path:'inputbill',component:InputBillComponent},
   {path:'billingstatus',component:BillingStatusComponent},

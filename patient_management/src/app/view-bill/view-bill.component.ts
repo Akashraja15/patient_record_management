@@ -43,4 +43,3 @@ export class ViewBillComponent implements OnInit {
   }
 
 }
-
