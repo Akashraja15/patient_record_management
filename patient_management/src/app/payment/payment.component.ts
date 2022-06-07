@@ -38,7 +38,6 @@ export class PaymentComponent {
 }
 
   constructor(private api:ApicallService) {
-    this.product
   }
 
   generatePDF(action = 'open') {
@@ -147,7 +146,7 @@ export class PaymentComponent {
     if (action === 'download') {
       this.name = localStorage.getItem('name');
       console.log("generate bill");
-      this.name=`${this.name}`+(Math.random() * 10).toFixed(0);
+      this.name=`${this.name}`+(Math.random() * 20).toFixed(0);
       pdfMake.createPdf(docDefinition).download(this.name);
     } else if (action === 'print') {
       pdfMake.createPdf(docDefinition).print();
