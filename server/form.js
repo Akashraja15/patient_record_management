@@ -50,9 +50,9 @@ app.get("/getUser", (request, response) => {
   });
 });
 app.get("/getUserId/:id", (request, response) => {
-  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.getId(request.params.id, "freshers_sample").then((_res) => {
+    if (_res) {
+      response.send(_res);
     } else {
       response.send("error");
     }
@@ -61,9 +61,9 @@ app.get("/getUserId/:id", (request, response) => {
 app.delete("/delete/:id/:id1", (request, response) => {
   dbconnection
     .del_id(request.params.id, request.params.id1, "freshers_sample")
-    .then((res) => {
-      if (res) {
-        response.send(res);
+    .then((del_res) => {
+      if (del_res) {
+        response.send(del_res);
       } else {
         response.send("error");
       }
@@ -81,18 +81,18 @@ app.get("/getAdmin", (request, response) => {
       type: "admin",
     }
   }
-  dbconnection.get(data,"freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.get(data,"freshers_sample").then((getadmin_res) => {
+    if (getadmin_res) {
+      response.send(getadmin_res);
     } else {
       response.send("error");
     }
   });
 });
 app.get("/getAdminId/:id", (request, response) => {
-  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.getId(request.params.id, "freshers_sample").then((adminid_res) => {
+    if (adminid_res) {
+      response.send(adminid_res);
     } else {
       response.send("error");
     }
@@ -139,9 +139,9 @@ app.get("/getBill", (request, response) => {
   });
 });
 app.get("/getBillId/:id", (request, response) => {
-  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.getId(request.params.id, "freshers_sample").then((bill_res) => {
+    if (bill_res) {
+      response.send(bill_res);
     } else {
       response.send("error");
     }
@@ -150,9 +150,9 @@ app.get("/getBillId/:id", (request, response) => {
 app.delete("/delBill/:id/:id1", (request, response) => {
   dbconnection
     .del_id(request.params.id, request.params.id1, "freshers_sample")
-    .then((res) => {
-      if (res) {
-        response.send(res);
+    .then((delbill_res) => {
+      if (delbill_res) {
+        response.send(delbill_res);
       } else {
         response.send("error");
       }
@@ -187,18 +187,18 @@ app.get("/getUserBillData", (request, response) => {
       type: "userbilldata",
     }
   }
-  dbconnection.get(data,"freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.get(data,"freshers_sample").then((userbill_res) => {
+    if (userbill_res) {
+      response.send(userbill_res);
     } else {
       response.send("error");
     }
   });
 });
 app.get("/getUserBillDataId/:id", (request, response) => {
-  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.getId(request.params.id, "freshers_sample").then((userbillid_res) => {
+    if (userbillid_res) {
+      response.send(userbillid_res);
     } else {
       response.send("error");
     }
@@ -232,9 +232,9 @@ app.post("/downBill", (request, response) => {
   });
 });
 app.get("/downBillId/:id", (request, response) => {
-  dbconnection.getId(request.params.id, "freshers_sample").then((res) => {
-    if (res) {
-      response.send(res);
+  dbconnection.getId(request.params.id, "freshers_sample").then((down_res) => {
+    if (down_res) {
+      response.send(down_res);
     } else {
       response.send("error");
     }

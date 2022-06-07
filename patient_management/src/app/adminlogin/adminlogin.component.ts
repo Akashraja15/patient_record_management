@@ -44,11 +44,11 @@ export class AdminloginComponent implements OnInit {
        }
     }
      if(this.flag == 1 ){
-      this.toastr.success("Valid to access");
+      this.toastr.success('Valid to access',"Success");
        this.router.navigate(['/admindashboard'])
      }
      else{
-      this.toastr.error("Invalid User");
+      this.toastr.error('Invalid Username or Password',"Error");
      }
  }
 
