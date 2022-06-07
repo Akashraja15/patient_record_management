@@ -107,7 +107,7 @@ app.get("/getAdminId/:id", (request, response) => {
 
 
 //bill
-app.post("/postQueryBill", (request, response, next) => {
+app.post("/postQueryBill", (request, _response, _next) => {
   console.log(request);
   let object = {
     patientname: request.body.formobject.patientname,
@@ -167,7 +167,7 @@ app.delete("/delBill/:id/:id1", (request, response) => {
 
 
 //user-billdata's
-app.post("/postQueryUserBillData", (request, response, next) => {
+app.post("/postQueryUserBillData", (request, _response, _next) => {
   let user_id = request.body.user_id;
   let username = request.body.filename;
   console.log(user_id);
