@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthserviceService } from '../shared/authservice.service';
 
 @Component({
   selector: 'app-admindashbroad',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmindashbroadComponent implements OnInit {
 
-  constructor() { /* constructor is empty */  }
+  constructor(private router:Router,private authserve:AuthserviceService) { /* constructor is empty */  }
 
   ngOnInit(): void {
     // method 'ngOnInit' is empty
   
+  }
+
+  logout() {
+    this.authserve.logout();  
+    this.router.navigate(['admin']);
   }
 
 }
