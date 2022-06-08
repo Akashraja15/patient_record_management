@@ -3,12 +3,14 @@ const connection = require("express");
 const bodyparser = require("body-parser");
 const app = connection();
 app.use(express.static("public"));
+const validation = require("./validation/userform.schema");
 const port = 8000;
 let login = {};
 const file = require("fs");
 const cors = require("cors");
 const dbconnection = require("./db");
 const winlogger = require("./logger/logger");
+const { response } = require("express");
 app.use(connection.static("public"));
 app.use(bodyparser.json());
 app.use(
@@ -19,7 +21,7 @@ app.use(
 
  
 //user
-app.post("/signUp", (request, _response, _next) => {
+app.post("/signUp", (request, _response) => {
   console.log(request);
   let object = {
     patientname: request.body.patientname,
@@ -30,8 +32,20 @@ app.post("/signUp", (request, _response, _next) => {
     confirmpassword: request.body.confirmpassword,
     type: "user",
   };
+  const value = validation.userformschema.validate(request.body);
+  if (value.error){
+    _response.json({
+      success: 0,
+      message: value.error.details[0].message,
+    });
+    
+  }
+  else {
+    dbconnection.insert(object).then(res=>{
+      _response.send(res);
+    });
+  }
  
-  dbconnection.insert(object);
 });
 
 app.get("/getUser", (request, response) => {

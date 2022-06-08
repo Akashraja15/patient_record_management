@@ -9,15 +9,10 @@ const cloudant = Cloudant({ url: url, username: username, password: password });
  
 let insert = function (paramsvalue) {
   console.log(paramsvalue);
-  cloudant
+  return cloudant
     .use("freshers_sample")
-    .insert(paramsvalue)
-    .then((data) => {
-      console.log("Data Inserted into Clouddatabase" + data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    .insert(paramsvalue);
+    
 };
 let get = function (admindata,dbname) {
   return cloudant.use(dbname).find(admindata);

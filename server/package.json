@@ -27,6 +27,7 @@
   "dependencies": {
     "@cloudant/cloudant": "^4.5.1",
     "cloudant-quickstart": "^1.25.5",
+    "joi": "^17.6.0",
     "logger": "0.0.1",
     "winston": "^3.7.2"
   }
