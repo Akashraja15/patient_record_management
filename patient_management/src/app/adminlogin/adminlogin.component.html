@@ -14,6 +14,8 @@
             class="form-control"
             id="adminname"
             placeholder="Enter your username"
+            minlength="3"
+            pattern="^[A-Za-z]*[0-9]*[A-Za-z]"
           />
           <span
             class="text-danger"
@@ -23,6 +25,17 @@
             "
             >* Name is required!!</span
           >
+          <span
+          class="text-danger"
+          *ngIf="adminform.hasError('minlength', 'username')"
+        >
+          *Character must be minimum 3 letters</span
+        >
+        <span
+        class="text-danger"
+        *ngIf="adminform.hasError('pattern', 'username')"
+        >*Name Should be in String!!
+      </span>
         </div>
 
         <div class="field">
@@ -33,6 +46,8 @@
             id="password"
             placeholder="Enter your Password"
             class="form-control"
+            maxlength="12"
+            pattern="[A-Za-z0-9@!_]{8,}"
           />
           <span
             class="text-danger"
@@ -43,6 +58,11 @@
           >
             *Password is required!!</span
           >
+          <span
+          class="text-danger"
+          *ngIf="adminform.hasError('pattern', 'password')"
+          >*Enter Correct Password!!
+        </span>
         </div>
 
         <div class="buttons text-center">

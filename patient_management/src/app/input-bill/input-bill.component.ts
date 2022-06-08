@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ApicallService } from '../apicall.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-input-bill',
@@ -12,7 +13,7 @@ export class InputBillComponent implements OnInit {
   billinfo!:FormGroup;
   value:boolean=true;
   userdetails:any;
-  constructor(private formbuilder:FormBuilder,private api:ApicallService) {
+  constructor(private formbuilder:FormBuilder,private api:ApicallService,private toastr:ToastrService) {
 
     this.billinfo = this.formbuilder.group(
       {
@@ -47,8 +48,7 @@ export class InputBillComponent implements OnInit {
   bill(Formvalue:NgForm){
     let id = localStorage.getItem('loginid');
     console.log(Formvalue);
-    alert('Your Data has been Add in database.');
-    location.reload();
+    this.toastr.success('Your Data has been Add in database.','Success');
     this.api.billData(Formvalue,id).subscribe(data => {
       console.log(data);
     });

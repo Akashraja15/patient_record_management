@@ -4,6 +4,8 @@ const bodyparser = require("body-parser");
 const app = connection();
 app.use(express.static("public"));
 const validation = require("./validation/userform.schema");
+const validation1 = require("./validation/adminlog.schema");
+const validation2 = require("./validation/userlog.scheme");
 const port = 8000;
 let login = {};
 const file = require("fs");

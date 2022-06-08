@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApicallService } from '../apicall.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class UserDetailsComponent implements OnInit {
   object:any=[];
   alldata:any;
 
-  constructor(private api:ApicallService) { }
+  constructor(private api:ApicallService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.api.getUser().subscribe(data=>{
@@ -29,8 +30,7 @@ export class UserDetailsComponent implements OnInit {
 
   delUser(data:any,data1:any){
     this.api.remove(data._id,data1._rev).subscribe(_res=>{
-      alert('Your Data has been deleted from the database.');
-      location.reload();
+      this.toastr.success('Your Data has been deleted from the database.','Success');
     })
      }
 }
