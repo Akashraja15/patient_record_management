@@ -13,6 +13,7 @@
             id="patientname"
             class="form-control"
             placeholder="Enter your Name here"
+            minlength="3"
           />
           <span
             class="text-danger"
@@ -23,16 +24,26 @@
           >
             *Name is required!!</span
           >
+
+          <span
+            class="text-danger"
+            *ngIf="registerform.hasError('minlength', 'patientname')"
+          >
+            *Character must be minimum 3 letters</span
+          >
         </div>
 
         <div class="field">
           <label for="phone" class="text-light">Phone Number :</label>
           <input
-            type="tel"
+            type="number"
             formControlName="phone"
             id="phone"
             class="form-control"
             placeholder="Enter Mobile Number"
+            minlength="10"
+            maxlength="10"
+            pattern="^[+0]{0,2}(91)?[0-9]{10}$"
           />
           <span
             class="text-danger"
@@ -41,7 +52,14 @@
               registerform.hasError('required', 'phone')
             "
           >
-            *Phone Number must be in 10 Digits!!</span
+            *Enter your Phone Number!!</span
+          >
+
+          <span
+            class="text-danger"
+            *ngIf="registerform.hasError('pattern', 'phone')"
+          >
+            *Phone Number must be in minimum 10 Digits!!</span
           >
         </div>
 
@@ -52,7 +70,8 @@
             formControlName="email"
             id="gmail"
             class="form-control"
-            placeholder="Enter your gmail"
+            placeholder="Enter your Email"
+            pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"
           />
           <span
             class="text-danger"
@@ -60,9 +79,14 @@
               registerform.controls['email'].touched &&
               registerform.hasError('required', 'email')
             "
+            >*Enter your Email</span
           >
-            *Enter Valid Gmail!!</span
-          >
+
+          <span
+            class="text-danger"
+            *ngIf="registerform.hasError('pattern', 'email')"
+            >*Email pattern is invalid!!
+          </span>
         </div>
 
         <div class="field">
@@ -74,6 +98,15 @@
             class="form-control"
             placeholder="Enter your Gender"
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['gender'].touched &&
+              registerform.hasError('required', 'gender')
+            "
+          >
+            *Enter your Gender!!</span
+          >
         </div>
 
         <div class="field">
@@ -84,7 +117,23 @@
             id="password"
             class="form-control"
             placeholder="Enter your password"
+            minlength="8"
+            maxlength="12"
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['password'].touched &&
+              registerform.hasError('required', 'password')
+            "
+          >
+            *Enter your Password!!</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="registerform.hasError('minlength', 'password')"
+            >*Week Password!!
+          </span>
         </div>
 
         <div class="field">
@@ -97,15 +146,22 @@
             id="confirmpassword"
             class="form-control"
             placeholder="Enter your Confirm password"
+            minlength="8"
+            maxlength="12"
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              registerform.controls['confirmpassword'].touched &&
+              registerform.hasError('required', 'confirmpassword')
+            "
+          >
+            *Enter your Confirm Password!!</span
+          >
         </div>
 
         <div class="buttons text-center">
-          <button
-            id="btn"
-            (click)="register(this.registerform.value)"
-            [disabled]="!registerform.valid"
-          >
+          <button id="btn" (click)="register(this.registerform.value)">
             Register
           </button>
         </div>

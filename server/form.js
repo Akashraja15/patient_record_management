@@ -209,7 +209,7 @@ app.get("/getUserBillDataId/:id", (request, response) => {
 
 
 
-//download bill
+//admindownload bill
 app.post("/downBill", (request, response) => {
   let loginid = request.body.user_id;
   console.log(loginid);
@@ -258,11 +258,6 @@ app.post("/userBillSave", (request, response) => {
 
   response.download(downloadFile);
 });
-
-
-
-
-
 
 
 

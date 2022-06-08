@@ -14,16 +14,6 @@
             class="form-control"
             readonly
           />
-
-          <span
-            class="text-danger"
-            *ngIf="
-              billinfo.controls['patientname'].touched &&
-              billinfo.hasError('required', 'patientname')
-            "
-          >
-            *Name is required!!</span
-          >
         </div>
 
         <div class="field">
@@ -35,15 +25,6 @@
             class="form-control"
             readonly
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              billinfo.controls['phone'].touched &&
-              billinfo.hasError('required', 'phone')
-            "
-          >
-            *Phone Number must be in 10 Digits!!</span
-          >
         </div>
 
         <div class="field">
@@ -55,15 +36,6 @@
             class="form-control"
             readonly
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              billinfo.controls['email'].touched &&
-              billinfo.hasError('required', 'email')
-            "
-          >
-            *Enter Valid Gmail!!</span
-          >
         </div>
 
         <div class="field">
@@ -85,6 +57,7 @@
             id="disease"
             class="form-control"
             placeholder="Mention the Disease??"
+            minlength="3"
           />
           <span
             class="text-danger"
@@ -94,6 +67,12 @@
             "
           >
             *Enter the Disease you affected</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="billinfo.hasError('minlength', 'disease')"
+          >
+            *Character must be minimum 3 letters</span
           >
         </div>
 

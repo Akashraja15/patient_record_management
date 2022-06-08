@@ -58,7 +58,7 @@ export class ApicallService {
 
 
 
-  //user-billdata's
+  //admindownload bill
     userBill(userid:any,username:any){
     let obj= {
       filename:username,
@@ -77,7 +77,7 @@ export class ApicallService {
 
 
 
-  //Download Bill
+  //userDownload Bill
   downBill(id:any){
     let obj={
       user_id:id
