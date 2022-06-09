@@ -51,6 +51,10 @@ export class InputBillComponent implements OnInit {
     this.toastr.success('Your Data has been Add in database.','Success');
     this.api.billData(Formvalue,id).subscribe(data => {
       console.log(data);
+    },rej=>{
+      console.log(rej);
+    this.toastr.error('Your Data can not be Added in database.','Error');
+
     });
   }
 
