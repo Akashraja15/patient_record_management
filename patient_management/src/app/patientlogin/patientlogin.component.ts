@@ -45,16 +45,15 @@ export class PatientloginComponent implements OnInit {
     console.log(formvalue);
     for(const i  of this.object){
       if(i.patientname ==  formvalue.username && i.password == formvalue.password){
-          this.flag = 1;
+        this.flag = 1;
         localStorage.setItem('loginid',i._id);
-          
-          let patientdetails:any = {
-              name:i.patientname,
-              phone:i.phone,
-              email:i.email,
-              gender:i.gender,
-          }
-          localStorage.setItem('userdetails',JSON.stringify(patientdetails));
+        let patientdetails:any = {
+          name:i.patientname,
+          phone:i.phone,
+          email:i.email,
+          gender:i.gender,
+        }
+        localStorage.setItem('userdetails',JSON.stringify(patientdetails));
       }
     }
     if(this.flag == 1 ){

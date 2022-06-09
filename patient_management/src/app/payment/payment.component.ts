@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ApicallService } from '../apicall.service';
 
-
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 

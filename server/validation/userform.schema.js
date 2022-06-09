@@ -17,10 +17,10 @@ const userformschema = Joi.object({
     .min(3)
     .required(),    
     password: Joi.string()
-    .regex(/[A-Za-z0-9@!_]{6,}/)
+    .regex(/[A-Za-z0-9@!_]{8,}/)
     .required(),
     confirmpassword: Joi.string()
-    .regex(/[A-Za-z0-9@!_]{6,}/)
+    .regex(/[A-Za-z0-9@!_]{8,}/)
     .required(),
 })
 
