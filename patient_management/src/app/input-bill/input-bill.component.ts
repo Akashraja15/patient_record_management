@@ -42,7 +42,7 @@ export class InputBillComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log("ngOnInit");
+    // method 'ngOnInit' is empty
   }
   
   bill(Formvalue:NgForm){
