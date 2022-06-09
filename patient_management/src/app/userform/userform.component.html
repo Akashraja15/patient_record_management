@@ -35,14 +35,14 @@
           <span
           class="text-danger"
           *ngIf="registerform.hasError('pattern', 'patientname')"
-          >*Name Should be in String!!
+          >*Name Should be in Alphabets!!
         </span>
         </div>
 
         <div class="field">
           <label for="phone" class="text-light">Phone Number :</label>
           <input
-            type="number"
+            type="text"
             formControlName="phone"
             id="phone"
             class="form-control"

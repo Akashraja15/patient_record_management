@@ -32,5 +32,6 @@ export class UserDetailsComponent implements OnInit {
     this.api.remove(data._id,data1._rev).subscribe(_res=>{
       this.toastr.success('Your Data has been deleted from the database.','Success');
     })
+    window.location.reload();
      }
 }

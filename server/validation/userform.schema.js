@@ -7,7 +7,6 @@ const userformschema = Joi.object({
     .min(3)
     .required(),
     phone: Joi.string()
-    .min(10)
     .max(10)
     .regex(/[+0]{0,2}(91)?\d{10}/)
     .required(),

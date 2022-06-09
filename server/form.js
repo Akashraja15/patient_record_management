@@ -33,6 +33,7 @@ app.post("/signUp", (request, _response) => {
   };
   const value = validation.userformschema.validate(request.body);
   if (value.error){
+    console.log(value);
     _response.json({
       success: 0,
       message: value.error.details[0].message,

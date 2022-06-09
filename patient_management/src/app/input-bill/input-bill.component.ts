@@ -54,7 +54,6 @@ export class InputBillComponent implements OnInit {
     },rej=>{
       console.log(rej);
     this.toastr.error('Your Data can not be Added in database.','Error');
-
     });
   }
 
