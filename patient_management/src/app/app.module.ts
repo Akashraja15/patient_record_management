@@ -21,6 +21,8 @@ import { ViewBillComponent } from './view-bill/view-bill.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { MediClaimComponent } from './medi-claim/medi-claim.component';
+import { ClaimStatusComponent } from './claim-status/claim-status.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { CommonModule } from '@angular/common';
     InputBillComponent,
     BillingStatusComponent,
     ViewBillComponent,
+    MediClaimComponent,
+    ClaimStatusComponent,
   ],
   imports: [
     BrowserModule,

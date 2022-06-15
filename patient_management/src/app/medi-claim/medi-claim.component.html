@@ -1,0 +1,99 @@
+<div class="container mt-5">
+    <div class="card mx-auto">
+      <div class="card-header">
+        <h1 class="text-center text-light">Medical Claims Information</h1>
+      </div>
+      <div class="card-body mx-auto">
+        <form class="myform" [formGroup]="medinfo">
+          <div class="field">
+            <label for="patientname" class="text-light">Patient Name :</label>
+            <input
+              type="text"
+              formControlName="patientname"
+              id="patientname"
+              class="form-control"
+              readonly
+            />
+          </div>
+  
+          <div class="field">
+            <label for="phone" class="text-light">Phone Number :</label>
+            <input
+              type="number"
+              formControlName="phone"
+              id="phone"
+              class="form-control"
+              readonly
+            />
+          </div>
+  
+          <div class="field">
+            <label for="gmail" class="text-light">Gmail :</label>
+            <input
+              type="text"
+              formControlName="email"
+              id="gmail"
+              class="form-control"
+              readonly
+            />
+          </div>
+  
+          <div class="field">
+            <label for="gender" class="text-light">Gender : </label>
+            <input
+              type="text"
+              id="gender"
+              readonly
+              class="form-control"
+              formControlName="gender"
+            />
+          </div>
+
+          <div class="field">
+            <label for="disease" class="text-light">Disease :</label>
+            <input
+              type="text"
+              formControlName="disease"
+              id="disease"
+              class="form-control"
+              placeholder="Mention the Disease??"
+              minlength="3"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                medinfo.controls['disease'].touched &&
+                medinfo.hasError('required', 'disease')
+              "
+            >
+              *Enter the Disease you affected</span
+            >
+            <span
+              class="text-danger"
+              *ngIf="medinfo.hasError('minlength', 'disease')"
+            >
+              *Character must be minimum 3 letters</span
+            >
+          </div>
+  
+  
+          <div class="field">
+            <label for="medical" class="text-light">Do you Have Medical Claims? </label>
+            <select class="form-select" formControlName="medical">
+              <option value="YES">
+                YES
+              </option>
+              <option value="NO">
+                NO
+              </option>
+            </select>
+          </div>
+  
+          <div class="buttons text-center">
+            <button id="btn" (click)="medi(this.medinfo.value)">Sumbit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -13,6 +13,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserformComponent } from './userform/userform.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
+import { MediClaimComponent } from './medi-claim/medi-claim.component';
+import { ClaimStatusComponent } from './claim-status/claim-status.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:'billingstatus',component:BillingStatusComponent},
   {path:'patientdashboard',component:PatientDashboardComponent},
   {path:'payment',component:PaymentComponent},
-  {path:'viewbill',component:ViewBillComponent}
+  {path:'viewbill',component:ViewBillComponent},
+  {path:'medinfo',component:MediClaimComponent},
+  {path:'adminclaim',component:ClaimStatusComponent}
 ];
 
 @NgModule({

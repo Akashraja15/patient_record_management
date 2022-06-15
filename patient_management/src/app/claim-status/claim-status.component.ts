@@ -3,21 +3,19 @@ import { ApicallService } from '../apicall.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-billing-status',
-  templateUrl: './billing-status.component.html',
-  styleUrls: ['./billing-status.component.css']
+  selector: 'app-claim-status',
+  templateUrl: './claim-status.component.html',
+  styleUrls: ['./claim-status.component.css']
 })
-export class BillingStatusComponent implements OnInit {
+export class ClaimStatusComponent implements OnInit {
 
   object:any=[];
   alldata:any;
   flag = 0;
-
   constructor(private api:ApicallService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
-
-    this.api.getBill().subscribe(data=>{
+    this.api.getMediBill().subscribe(data=>{
       console.log(data);
       this.alldata=data;
       this.alldata=this.alldata.docs;
@@ -30,18 +28,10 @@ export class BillingStatusComponent implements OnInit {
   }
 
   deletes(data:any,data1:any){
-    this.api.removeBill(data._id,data1._rev).subscribe(_res=>{
+    this.api.removeMediBill(data._id,data1._rev).subscribe(_res=>{
       this.toastr.success("Your Data has been deleted from the database.",'Success');
     })
     window.location.reload();
-    }
-    
-
-  genBillId(parameter:any,parameter1:any){
-    console.log(parameter);
-    console.log(parameter1);
-    localStorage.setItem('object',parameter);
-    localStorage.setItem('name',parameter1);   
-}
+  }
 
 }

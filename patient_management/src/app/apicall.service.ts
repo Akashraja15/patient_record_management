@@ -59,6 +59,33 @@ export class ApicallService {
 
 
 
+
+
+
+  //medi
+  mediData(formobject:any,loginuserid:any){
+    let obj={
+      formobject:formobject,
+      _id :loginuserid,
+    }
+    console.log("obj");
+    return this.http.post('http://localhost:8000/postMediBill',obj)
+  }
+  getMediBill(){
+    return this.http.get('http://localhost:8000/getMediBill/');
+  }
+  getMediBillId(id:any){
+    return this.http.get(`http://localhost:8000/getMediBillId/${id}`);
+  }
+  removeMediBill(id:any,id1:any){
+    return this.http.delete(`http://localhost:8000/delMediBill/${id}/${id1}`);
+  }
+
+
+
+
+
+
   //admindownload bill
     userBill(userid:any,username:any){
     let obj= {

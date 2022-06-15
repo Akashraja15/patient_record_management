@@ -1,4 +1,4 @@
-<h1 class="title">Billing Information</h1>
+<h1 class="title">Medical Claims</h1>
 <div class="table1">
   <table class="table bg-light" id="customers">
     <caption></caption>
@@ -9,12 +9,9 @@
         <th scope="col">Email</th>
         <th scope="col">Gender</th>
         <th scope="col">Disease</th>
-        <th scope="col">Insurance</th>
-        <!-- <th scope="col">Medical Claims</th> -->
-        <th scope="col">Admitted Date</th>
-        <th scope="col">Discharge Date</th>
-        <th scope="col">Delete Bill</th>
-        <th scope="col">Generate Bill</th>
+        <th scope="col">Medical Claims</th>
+        <th scope="col">Reject Request</th>
+        <th scope="col">Approve Request</th>
       </tr>
     </thead>
     <tbody>
@@ -24,22 +21,16 @@
         <td>{{ obj.email }}</td>
         <td>{{ obj.gender }}</td>
         <td>{{ obj.disease }}</td>
-        <td>{{ obj.insurance }}</td>
-        <!-- <td>{{ obj.claims }}</td> -->
-        <td>{{ obj.fromdate }}</td>
-        <td>{{ obj.todate }}</td>
+        <td>{{ obj.medical }}</td>
         <td>
           <button class="btn btn-danger" (click)="deletes(obj, obj)">
-            Delete Bill
+            Reject
           </button>
         </td>
         <td>
           <button
-            class="btn btn-success"
-            (click)="genBillId(obj.user_id, obj.patientname)"
-            routerLink="/payment"
-          >
-            Generate Bill
+            class="btn btn-success" routerLink="/billingstatus">
+            Approve
           </button>
         </td>
       </tr>

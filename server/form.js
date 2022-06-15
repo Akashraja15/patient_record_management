@@ -127,6 +127,7 @@ app.post("/postQueryBill", (request, _response, _next) => {
     gender: request.body.formobject.gender,
     disease: request.body.formobject.disease,
     insurance: request.body.formobject.insurance,
+    // claims: request.body.formobject.claims,
     fromdate: request.body.formobject.fromdate,
     todate: request.body.formobject.todate,
     user_id:request.body._id,
@@ -172,6 +173,68 @@ app.delete("/delBill/:id/:id1", (request, response) => {
       }
     });
 });
+
+
+
+
+
+//medi
+app.post("/postMediBill", (request, _response, _next) => {
+  console.log(request);
+  let object = {
+    patientname: request.body.formobject.patientname,
+    phone: request.body.formobject.phone,
+    email: request.body.formobject.email,
+    gender: request.body.formobject.gender,
+    medical: request.body.formobject.medical,
+    disease: request.body.formobject.disease,
+    user_id:request.body._id,
+    type: "claims",
+  };
+ 
+  dbconnection.insert(object);
+});
+app.get("/getMediBill", (request, response) => {
+  console.log(request);
+  let data = {
+    selector: {
+      type: "claims",
+    }
+  }
+  dbconnection.get(data,"freshers_sample").then((res) => {
+    if (res) {
+      response.send(res);
+      console.log(res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.get("/getMediBillId/:id", (request, response) => {
+  dbconnection.getId(request.params.id, "freshers_sample").then((bill_res) => {
+    if (bill_res) {
+      response.send(bill_res);
+    } else {
+      response.send("error");
+    }
+  });
+});
+app.delete("/delMediBill/:id/:id1", (request, response) => {
+  dbconnection
+    .del_id(request.params.id, request.params.id1, "freshers_sample")
+    .then((delbill_res) => {
+      if (delbill_res) {
+        response.send(delbill_res);
+      } else {
+        response.send("error");
+      }
+    });
+});
+
+
+
+
+
 
 
 
