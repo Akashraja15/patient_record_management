@@ -23,7 +23,6 @@ export class InputBillComponent implements OnInit {
         gender:['',Validators.required],
         disease:['',Validators.required],
         insurance:['',Validators.required],
-        // claims:['',Validators.required],
         fromdate:['',Validators.required],
         todate:['',Validators.required]
       }

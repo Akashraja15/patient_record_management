@@ -127,7 +127,6 @@ app.post("/postQueryBill", (request, _response, _next) => {
     gender: request.body.formobject.gender,
     disease: request.body.formobject.disease,
     insurance: request.body.formobject.insurance,
-    // claims: request.body.formobject.claims,
     fromdate: request.body.formobject.fromdate,
     todate: request.body.formobject.todate,
     user_id:request.body._id,
